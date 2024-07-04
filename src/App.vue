@@ -52,7 +52,7 @@
       class="position-absolute vw-100"
       style="
         height: 200%;
-        background: url(../src/assets/image/bg1.jpg) center;
+        background: url(../src/assets/image/bg1.webp) center;
         background-size: cover;
       "></div>
     <!-- 路由 -->
