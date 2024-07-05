@@ -32,36 +32,9 @@
       </div>
     </div>
   </header>
-  <!-- 主体 -->
-  <swiper-container
-    ref="swiperOut"
-    pagination="true"
-    pagination-clickable="true"
-    speed="1500"
-    direction="vertical"
-    mousewheel="true"
-    grab-cursor="true"
-    keyboard="true"
-    parallax="true"
-    init="false"
-    class="vw-100 vh-100">
-    <!-- swiper背景图，absolute绝对定位后才能适配parallax视差 -->
-    <div
-      slot="container-start"
-      data-swiper-parallax="-50%"
-      class="position-absolute vw-100"
-      style="
-        height: 200%;
-        background: url(../src/assets/image/bg1.webp) center;
-        background-size: cover;
-      "></div>
-    <!-- 路由 -->
-    <RouterView :swiperOut />
-  </swiper-container>
+  <RouterView />
 </template>
 <script lang="ts" setup>
-  import { ref } from "vue";
-
   const header = [
     { text: "关于香龙", dropdown: ["集团简介", "企业文化"] },
     { text: "研发体系" },
@@ -69,7 +42,6 @@
     { text: "应用场景", dropdown: ["食用香精", "烟用香精"] },
     { text: "营销网络" },
   ];
-  const swiperOut = ref();
 </script>
 <style lang="scss" scoped>
   .DownLineAnim {

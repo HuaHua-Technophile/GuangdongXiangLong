@@ -1,87 +1,83 @@
 <template>
-  <swiper-slide class="vw-100">
-    <!-- 首屏介绍 -->
-    <div
-      class="bg-white bg-opacity-50 position-absolute top-50 translate-middle-y rounded-4 shadow"
-      style="
-        width: 550px;
-        max-height: calc(100vh - 50px);
-        left: calc(66% - 275px);
-        padding: 2.2vh 0;
-      ">
-      <!-- LOGO -->
-      <div class="text-center">
-        <img src="../assets/image/LOGO.webp" style="width: 150px" />
-      </div>
-      <!-- 文本 -->
-      <div class="text-center lh-1" style="margin-top: 2.2vh">
-        <div style="font-family: qlls; font-size: 3.9rem; letter-spacing: 13px">
-          廣東香龍香料
+  <VerticalParallaxSwiper>
+    <swiper-slide class="vw-100">
+      <!-- 首屏介绍 -->
+      <div
+        class="bg-white bg-opacity-50 position-absolute top-50 translate-middle-y rounded-4 shadow"
+        style="
+          width: 550px;
+          max-height: calc(100vh - 50px);
+          left: calc(66% - 275px);
+          padding: 2.2vh 0;
+        ">
+        <!-- LOGO -->
+        <div class="text-center">
+          <img src="../assets/image/LOGO.webp" style="width: 150px" />
         </div>
-        <div
-          style="
-            font-family: cinzel;
-            font-size: 1.8rem;
-            word-spacing: 15px;
-            margin-top: 1.2vh;
-          "
-          class="Capitalized">
-          <span>F</span>RAGRANT <span>D</span>RAGON <span>C</span>O.
-        </div>
-        <div
-          style="
-            font-family: qlls;
-            font-size: 2.8rem;
-            letter-spacing: 10px;
-            margin-top: 2.7vh;
-          ">
-          百年經營 萬分用心
-        </div>
-        <div
-          style="
-            font-family: MisansTC-Light;
-            font-size: 1.3rem;
-            margin-top: 4.2vh;
-          ">
-          <div style="margin-bottom: 4.2vh">專營產品及服務</div>
-          <div style="line-height: 170%">
-            煙用香精、食用香料、日化香料<br />植物提取、再造煙葉、研發銷售
+        <!-- 文本 -->
+        <div class="text-center lh-1" style="margin-top: 2.2vh">
+          <div
+            style="font-family: qlls; font-size: 3.9rem; letter-spacing: 13px">
+            廣東香龍香料
+          </div>
+          <div
+            style="
+              font-family: cinzel;
+              font-size: 1.8rem;
+              word-spacing: 15px;
+              margin-top: 1.2vh;
+            "
+            class="Capitalized">
+            <span>F</span>RAGRANT <span>D</span>RAGON <span>C</span>O.
+          </div>
+          <div
+            style="
+              font-family: qlls;
+              font-size: 2.8rem;
+              letter-spacing: 10px;
+              margin-top: 2.7vh;
+            ">
+            百年經營 萬分用心
+          </div>
+          <div
+            style="
+              font-family: MisansTC-Light;
+              font-size: 1.3rem;
+              margin-top: 4.2vh;
+            ">
+            <div style="margin-bottom: 4.2vh">專營產品及服務</div>
+            <div style="line-height: 170%">
+              煙用香精、食用香料、日化香料<br />植物提取、再造煙葉、研發銷售
+            </div>
+          </div>
+          <div
+            style="
+              font-weight: lighter;
+              line-height: 170%;
+              width: 70%;
+              margin-top: 4.2vh;
+            "
+            class="text-start mx-auto">
+            <div>Specialized Products and Services:</div>
+            <div style="margin-top: 2.2vh">
+              Tobacco Flavors, Food Flavors, Daily Chemical Flavors Plant
+              Extracts, Reconstituted Tobacco, Research and Sales
+            </div>
           </div>
         </div>
-        <div
-          style="
-            font-weight: lighter;
-            line-height: 170%;
-            width: 70%;
-            margin-top: 4.2vh;
-          "
-          class="text-start mx-auto">
-          <div>Specialized Products and Services:</div>
-          <div style="margin-top: 2.2vh">
-            Tobacco Flavors, Food Flavors, Daily Chemical Flavors Plant
-            Extracts, Reconstituted Tobacco, Research and Sales
-          </div>
-        </div>
       </div>
-    </div>
-    <!-- 下拉箭头 -->
-    <div class="DropdownArrow position-absolute bottom-0 start-50">
-      <span></span>
-      <span></span>
-    </div>
-  </swiper-slide>
-  <swiper-slide class="vw-100">slide2</swiper-slide>
-  <swiper-slide class="vw-100">slide3</swiper-slide>
+      <!-- 下拉箭头 -->
+      <div class="DropdownArrow position-absolute bottom-0 start-50">
+        <span></span>
+        <span></span>
+      </div>
+    </swiper-slide>
+    <swiper-slide class="vw-100">slide2</swiper-slide>
+    <swiper-slide class="vw-100">slide3</swiper-slide>
+  </VerticalParallaxSwiper>
 </template>
 
-<script lang="ts" setup>
-  import { SwiperContainer } from "swiper/element";
-  import { onMounted } from "vue";
-  const props = defineProps<{ swiperOut: SwiperContainer }>();
-  onMounted(() => {
-    props.swiperOut.initialize();
-  });
-</script>
+<script lang="ts" setup></script>
 
 <style lang="scss" scoped>
   .Capitalized {
