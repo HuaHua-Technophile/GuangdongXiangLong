@@ -1,5 +1,7 @@
 <template>
-  <VerticalParallaxSwiper>
+  <VerticalParallaxSwiper
+    :onSlideChange="onSlideChange"
+    @changeSwiperEl="changeSwiperEl">
     <swiper-slide class="vw-100">
       <!-- 首屏介绍 -->
       <div
@@ -67,17 +69,41 @@
         </div>
       </div>
       <!-- 下拉箭头 -->
-      <div class="DropdownArrow position-absolute bottom-0 start-50">
+      <div
+        class="DropdownArrow position-absolute bottom-0 start-50"
+        @click="slideToNext">
         <span></span>
         <span></span>
       </div>
     </swiper-slide>
     <swiper-slide class="vw-100">slide2</swiper-slide>
     <swiper-slide class="vw-100">slide3</swiper-slide>
+    <swiper-slide class="vw-100">slide4</swiper-slide>
   </VerticalParallaxSwiper>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { ref } from "vue";
+  import type { SwiperContainer } from "swiper/element";
+  import type { Swiper } from "swiper/types";
+
+  // 接受实例化后的swiper
+  const changeSwiperEl = (data: SwiperContainer) => {
+    swiperOut.value = data;
+  };
+
+  const showHeader = defineModel<boolean>("showHeader");
+  const onSlideChange = (e: CustomEvent<[Swiper]>) => {
+    if (e.detail[0].activeIndex != 0) showHeader.value = true;
+    else showHeader.value = false;
+  };
+
+  // 点击按钮跳转下一页
+  const swiperOut = ref<SwiperContainer>();
+  const slideToNext = () => {
+    swiperOut.value?.swiper.slideNext();
+  };
+</script>
 
 <style lang="scss" scoped>
   .Capitalized {

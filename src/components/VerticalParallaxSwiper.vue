@@ -10,6 +10,7 @@
     :keyboard="true"
     :parallax="true"
     :init="false"
+    @swiperslidechange="props.onSlideChange"
     class="vw-100 vh-100">
     <!-- swiper背景图，absolute绝对定位后才能适配parallax视差 -->
     <div
@@ -26,10 +27,22 @@
   </swiper-container>
 </template>
 <script lang="ts" setup>
+  import type { SwiperContainer } from "swiper/element";
   import { onMounted, ref } from "vue";
 
-  const swiperOut = ref();
+  const emit = defineEmits<{
+    changeSwiperEl: [swiperOut: SwiperContainer];
+  }>();
+
+  // 延迟DOM加载后实例化------------
+  const swiperOut = ref<SwiperContainer>();
   onMounted(() => {
     swiperOut.value?.initialize();
+    emit("changeSwiperEl", swiperOut.value!);
   });
+
+  // 滑动事件-----------------
+  const props = defineProps<{
+    onSlideChange: Function;
+  }>();
 </script>

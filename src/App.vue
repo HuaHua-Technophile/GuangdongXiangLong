@@ -1,40 +1,49 @@
 <template>
   <!-- 顶栏 -->
-  <header class="vw-100 position-fixed top-0" style="z-index: 9999999">
-    <div class="container">
-      <div class="d-flex justify-content-between">
-        <!-- 公司LOGO -->
-        <div class="d-flex align-items-center py-1">
-          <img
-            src="./assets/image/LOGO.webp"
-            style="width: 50px"
-            class="me-1" />
-          <div class="text-justify text-xlxl lh-1">
-            <div
-              class="fs-2 d-flex justify-content-between"
-              style="font-family: qlls">
-              <span>香</span><span>龍</span><span>香</span><span>料</span>
+  <Transition
+    enter-active-class="animate__animated animate__fadeInDown animate__duration_1500"
+    leave-active-class="animate__animated animate__fadeOutUp animate__duration_1500">
+    <header
+      class="vw-100 position-fixed top-0"
+      v-if="showHeader"
+      style="z-index: 9999999">
+      <div class="container">
+        <div class="d-flex justify-content-between">
+          <!-- 公司LOGO -->
+          <div class="d-flex align-items-center py-1">
+            <img
+              src="./assets/image/LOGO.webp"
+              style="width: 50px"
+              class="me-1" />
+            <div class="text-justify text-xlxl lh-1">
+              <div
+                class="fs-2 d-flex justify-content-between"
+                style="font-family: qlls">
+                <span>香</span><span>龍</span><span>香</span><span>料</span>
+              </div>
+              <div style="font-family: '宋体'">FRAGRANT DRAGON GROUP</div>
             </div>
-            <div style="font-family: '宋体'">FRAGRANT DRAGON GROUP</div>
           </div>
-        </div>
-        <!-- 下拉菜单 -->
-        <div
-          v-for="i in header"
-          class="DownLineAnim d-flex align-items-center position-relative fs-4"
-          popper-class="bg-black bg-opacity-10">
-          <div>{{ i.text }}</div>
-          <!-- 子项 -->
-          <div class="dropdown position-absolute">
-            <div v-for="j in i.dropdown">{{ j }}</div>
+          <!-- 下拉菜单 -->
+          <div
+            v-for="i in header"
+            class="DownLineAnim d-flex align-items-center position-relative fs-4"
+            popper-class="bg-black bg-opacity-10">
+            <div>{{ i.text }}</div>
+            <!-- 子项 -->
+            <div class="dropdown position-absolute">
+              <div v-for="j in i.dropdown">{{ j }}</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </header>
-  <RouterView />
+    </header>
+  </Transition>
+  <RouterView v-model:showHeader="showHeader" />
 </template>
 <script lang="ts" setup>
+  import { ref } from "vue";
+
   const header = [
     { text: "关于香龙", dropdown: ["集团简介", "企业文化"] },
     { text: "研发体系" },
@@ -42,6 +51,7 @@
     { text: "应用场景", dropdown: ["食用香精", "烟用香精"] },
     { text: "营销网络" },
   ];
+  const showHeader = ref(false);
 </script>
 <style lang="scss" scoped>
   .DownLineAnim {
@@ -75,5 +85,8 @@
         top: 100%;
       }
     }
+  }
+  .animate__duration_1500 {
+    --animate-duration: 1500ms;
   }
 </style>
