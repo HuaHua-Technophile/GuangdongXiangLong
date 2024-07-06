@@ -11,6 +11,7 @@
           max-height: calc(100vh - 50px);
           left: calc(66% - 275px);
           padding: 2.2vh 0;
+          backdrop-filter: blur(5px);
         ">
         <!-- LOGO -->
         <div class="text-center">
@@ -87,11 +88,6 @@
   import type { SwiperContainer } from "swiper/element";
   import type { Swiper } from "swiper/types";
 
-  // 接受实例化后的swiper
-  const changeSwiperEl = (data: SwiperContainer) => {
-    swiperOut.value = data;
-  };
-
   const showHeader = defineModel<boolean>("showHeader");
   const onSlideChange = (e: CustomEvent<[Swiper]>) => {
     if (e.detail[0].activeIndex != 0) showHeader.value = true;
@@ -100,6 +96,10 @@
 
   // 点击按钮跳转下一页
   const swiperOut = ref<SwiperContainer>();
+  // 接受实例化后的swiper
+  const changeSwiperEl = (data: SwiperContainer) => {
+    swiperOut.value = data;
+  };
   const slideToNext = () => {
     swiperOut.value?.swiper.slideNext();
   };

@@ -20,3 +20,20 @@
 .el-tooltip__trigger:focus-visible {
   outline: unset;
 } //去除下拉菜单聚焦时外边框
+
+.transition500 {
+  transition: all 0.5s;
+}
+.transition800 {
+  transition: all 0.8s;
+}
+.transition1000 {
+  transition: all 1s;
+}
+.transition1500 {
+  transition: all 1.5s;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

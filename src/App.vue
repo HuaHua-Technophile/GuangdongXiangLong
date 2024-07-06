@@ -4,13 +4,15 @@
     enter-active-class="animate__animated animate__fadeInDown animate__duration_1500"
     leave-active-class="animate__animated animate__fadeOutUp animate__duration_1500">
     <header
-      class="vw-100 position-fixed top-0"
-      v-if="showHeader"
+      class="vw-100 position-fixed top-0 bg-white bg-opacity-50 shadow"
+      v-show="showHeader"
       style="z-index: 9999999">
       <div class="container">
         <div class="d-flex justify-content-between">
           <!-- 公司LOGO -->
-          <div class="d-flex align-items-center py-1">
+          <RouterLink
+            class="d-flex align-items-center py-1 text-decoration-none"
+            to="/">
             <img
               src="./assets/image/LOGO.webp"
               style="width: 50px"
@@ -23,39 +25,105 @@
               </div>
               <div style="font-family: '宋体'">FRAGRANT DRAGON GROUP</div>
             </div>
-          </div>
+          </RouterLink>
           <!-- 下拉菜单 -->
+          <!-- v-for的优先级是高于v-if的，如果两者同时使用，那么v-if会在每一个v-for循环渲染出来的项上作用，造成性能上的浪费。
+使用计算属性computed：
+
+computed: {
+	activeItemList: function() {
+		return this.itemList.filter((item) => {
+			return item.isActive
+		})
+	}
+} 
+<div v-for="item in activeItemList">{{item.value}}</div>
+-->
           <div
             v-for="i in header"
-            class="DownLineAnim d-flex align-items-center position-relative fs-4"
-            popper-class="bg-black bg-opacity-10">
-            <div>{{ i.text }}</div>
-            <!-- 子项 -->
-            <div class="dropdown position-absolute">
-              <div v-for="j in i.dropdown">{{ j }}</div>
+            class="dropdownFather d-flex align-items-center position-relative fs-4 cursor-pointer"
+            @mouseenter="showDropdown(i, true)"
+            @mouseleave="showDropdown(i, false)">
+            <!-- 有子项,不设置100%高度则鼠标与dropdown之间存在缝隙 -->
+            <div v-if="i.dropdown" class="h-100 d-flex align-items-center">
+              <div class="changeColor transition800">{{ i.text }}</div>
+              <transition
+                enter-active-class="animate__animated animate__faster animate__fadeInUp"
+                leave-active-class="animate__animated animate__faster animate__fadeOutUp">
+                <div
+                  v-show="i.show"
+                  class="position-absolute top-100 rounded-bottom shadow bg-white bg-opacity-50 fs-5 w-100"
+                  style="backdrop-filter: blur(10px)">
+                  <RouterLink
+                    v-for="j in i.dropdown"
+                    :to="j.url"
+                    class="text-decoration-none d-block text-center py-1 changeColor transition500">
+                    {{ j.text }}
+                  </RouterLink>
+                </div>
+              </transition>
             </div>
+            <!-- 没有子项 -->
+            <RouterLink
+              v-else
+              :to="i.url"
+              class="text-decoration-none text-black changeColor transition800">
+              {{ i.text }}
+            </RouterLink>
           </div>
         </div>
       </div>
     </header>
   </Transition>
-  <RouterView v-model:showHeader="showHeader" />
+  <RouterView v-slot="{ Component }" v-model:showHeader="showHeader">
+    <transition
+      mode="out-in"
+      enter-active-class="animate__animated animate__fadeIn animate_faster"
+      leave-active-class="animate__animated animate__fadeOut animate_faster">
+      <component :is="Component" />
+    </transition>
+  </RouterView>
 </template>
 <script lang="ts" setup>
   import { ref } from "vue";
-
-  const header = [
-    { text: "关于香龙", dropdown: ["集团简介", "企业文化"] },
-    { text: "研发体系" },
-    { text: "一流品控", dropdown: ["品质管理", "生产制造", "绿色产园"] },
-    { text: "应用场景", dropdown: ["食用香精", "烟用香精"] },
-    { text: "营销网络" },
-  ];
+  import { throttle } from "lodash";
+  const header = ref([
+    {
+      text: "关于香龙",
+      dropdown: [
+        { text: "集团简介", url: "/About_Group" },
+        { text: "企业文化", url: "/Corporate_Culture" },
+      ],
+      show: false,
+    },
+    { text: "研发体系", url: "/RD_System" },
+    {
+      text: "一流品控",
+      dropdown: [
+        { text: "品质管理", url: "/Quality_Management" },
+        { text: "生产制造", url: "/Manufacturing" },
+        { text: "绿色产园", url: "/Green_Industrial_Park" },
+      ],
+      show: false,
+    },
+    {
+      text: "应用场景",
+      dropdown: [
+        { text: "食用香精", url: "/Edible_Flavors" },
+        { text: "烟用香精", url: "/Tobacco_Flavorings" },
+      ],
+      show: false,
+    },
+    { text: "营销网络", url: "/Sales_Network" },
+  ]);
   const showHeader = ref(false);
+
+  const showDropdown = throttle((i, target) => {
+    i.show = target;
+  }, 500);
 </script>
 <style lang="scss" scoped>
-  .DownLineAnim {
-    transition: 0.8s all; //color
+  .dropdownFather {
     &::after {
       content: "";
       position: absolute;
@@ -67,26 +135,17 @@
       background: var(--bs-xlxl);
       transition: 0.8s all; //width
     }
-    .dropdown {
-      background: green;
-      border-radius: 15px;
-      opacity: 0;
-      top: 110%;
-      left: 0;
-      transition: 0.8s all; //color opacity position
+    &:hover::after {
+      width: 100%;
     }
-    &:hover {
-      color: var(--bs-xlxl);
-      &::after {
-        width: 100%;
-      }
-      .dropdown {
-        opacity: 1;
-        top: 100%;
-      }
-    }
+  }
+  .changeColor:hover {
+    color: var(--bs-xlxl) !important;
   }
   .animate__duration_1500 {
     --animate-duration: 1500ms;
+  }
+  header {
+    backdrop-filter: blur(10px);
   }
 </style>
