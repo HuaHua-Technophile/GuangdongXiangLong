@@ -14,35 +14,41 @@
           backdrop-filter: blur(5px);
         ">
         <!-- LOGO -->
-        <div class="text-center">
+        <div class="text-center animate__animated animate__slideInUp">
           <img src="../assets/image/LOGO.webp" style="width: 150px" />
         </div>
         <!-- 文本 -->
         <div class="text-center lh-1" style="margin-top: 2.2vh">
-          <div
-            style="font-family: qlls; font-size: 3.9rem; letter-spacing: 13px">
-            廣東香龍香料
+          <div class="animate__animated animate__slideInUp animate__delay-1s">
+            <div
+              style="
+                font-family: qlls;
+                font-size: 3.9rem;
+                letter-spacing: 13px;
+              ">
+              廣東香龍香料
+            </div>
+            <div
+              style="
+                font-family: cinzel;
+                font-size: 1.8rem;
+                word-spacing: 15px;
+                margin-top: 1.2vh;
+              ">
+              <span>F</span>RAGRANT <span>D</span>RAGON <span>C</span>O.
+            </div>
+            <div
+              style="
+                font-family: qlls;
+                font-size: 2.8rem;
+                letter-spacing: 10px;
+                margin-top: 2.7vh;
+              ">
+              百年經營 萬分用心
+            </div>
           </div>
           <div
-            style="
-              font-family: cinzel;
-              font-size: 1.8rem;
-              word-spacing: 15px;
-              margin-top: 1.2vh;
-            "
-            class="Capitalized">
-            <span>F</span>RAGRANT <span>D</span>RAGON <span>C</span>O.
-          </div>
-          <div
-            style="
-              font-family: qlls;
-              font-size: 2.8rem;
-              letter-spacing: 10px;
-              margin-top: 2.7vh;
-            ">
-            百年經營 萬分用心
-          </div>
-          <div
+            class="animate__animated animate__slideInUp animate__delay-2s"
             style="
               font-family: MisansTC-Light;
               font-size: 1.3rem;
@@ -60,7 +66,7 @@
               width: 70%;
               margin-top: 4.2vh;
             "
-            class="text-start mx-auto">
+            class="text-start mx-auto animate__animated animate__slideInUp animate__delay-3s">
             <div>Specialized Products and Services:</div>
             <div style="margin-top: 2.2vh">
               Tobacco Flavors, Food Flavors, Daily Chemical Flavors Plant

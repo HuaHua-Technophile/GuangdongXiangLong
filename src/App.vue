@@ -7,7 +7,7 @@
       class="vw-100 position-fixed top-0 bg-white bg-opacity-50 shadow"
       v-show="showHeader"
       style="z-index: 9999999">
-      <div class="container">
+      <div class="container-sm">
         <div class="d-flex justify-content-between">
           <!-- 公司LOGO -->
           <RouterLink
@@ -57,7 +57,7 @@ computed: {
                   <RouterLink
                     v-for="j in i.dropdown"
                     :to="j.url"
-                    class="text-decoration-none d-block text-center py-1 changeColor transition500">
+                    class="text-decoration-none d-block text-center py-1 mt-1 rounded changeColor changeBg transition500">
                     {{ j.text }}
                   </RouterLink>
                 </div>
@@ -91,7 +91,7 @@ computed: {
     {
       text: "关于香龙",
       dropdown: [
-        { text: "集团简介", url: "/About_Group" },
+        { text: "集团简介", url: "/" },
         { text: "企业文化", url: "/Corporate_Culture" },
       ],
       show: false,
@@ -141,6 +141,9 @@ computed: {
   }
   .changeColor:hover {
     color: var(--bs-xlxl) !important;
+  }
+  .changeBg:hover {
+    background-color: rgba(var(--bs-xlxl-rgb), 0.25);
   }
   .animate__duration_1500 {
     --animate-duration: 1500ms;
