@@ -3,12 +3,7 @@ import { createMemoryHistory, createRouter } from "vue-router";
 const router = createRouter({
   history: createMemoryHistory(),
   routes: [
-    { path: "/", name: "首页", component: () => import("@/view/Home.vue") },
-    {
-      path: "/About_Group",
-      name: "集团简介",
-      component: () => import("@/view/About_Group.vue"),
-    },
+    { path: "/", name: "集团简介", component: () => import("@/view/Home.vue") },
     {
       path: "/Corporate_Culture",
       name: "企业文化",

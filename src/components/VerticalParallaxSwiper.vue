@@ -11,7 +11,7 @@
     :parallax="true"
     :init="false"
     @swiperslidechange="props.onSlideChange"
-    class="vw-100 vh-100">
+    class="swiperOut vw-100 vh-100">
     <!-- swiper背景图，absolute绝对定位后才能适配parallax视差 -->
     <div
       slot="container-start"

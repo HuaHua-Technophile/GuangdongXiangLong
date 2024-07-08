@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@types/node": "^20.14.9",
+    "@types/node": "^20.14.10",
     "animate.css": "^4.1.1",
     "bootstrap": "5.3.3",
     "element-plus": "^2.7.6",

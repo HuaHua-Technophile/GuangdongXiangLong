@@ -52,8 +52,7 @@ computed: {
                 leave-active-class="animate__animated animate__faster animate__fadeOutUp">
                 <div
                   v-show="i.show"
-                  class="position-absolute top-100 rounded-bottom shadow bg-white bg-opacity-50 fs-5 w-100"
-                  style="backdrop-filter: blur(10px)">
+                  class="position-absolute top-100 rounded-bottom shadow bg-white bg-opacity-75 fs-5 w-100">
                   <RouterLink
                     v-for="j in i.dropdown"
                     :to="j.url"
