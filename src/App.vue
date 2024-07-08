@@ -27,18 +27,6 @@
             </div>
           </RouterLink>
           <!-- 下拉菜单 -->
-          <!-- v-for的优先级是高于v-if的，如果两者同时使用，那么v-if会在每一个v-for循环渲染出来的项上作用，造成性能上的浪费。
-使用计算属性computed：
-
-computed: {
-	activeItemList: function() {
-		return this.itemList.filter((item) => {
-			return item.isActive
-		})
-	}
-} 
-<div v-for="item in activeItemList">{{item.value}}</div>
--->
           <div
             v-for="i in header"
             class="dropdownFather d-flex align-items-center position-relative fs-4 cursor-pointer"
@@ -56,7 +44,7 @@ computed: {
                   <RouterLink
                     v-for="j in i.dropdown"
                     :to="j.url"
-                    class="text-decoration-none d-block text-center py-1 mt-1 rounded changeColor changeBg transition500">
+                    class="text-decoration-none d-block text-center py-1 mt-1 rounded text-xlxl changeColor changeBg transition500">
                     {{ j.text }}
                   </RouterLink>
                 </div>
