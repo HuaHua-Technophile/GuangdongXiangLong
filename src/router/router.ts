@@ -1,7 +1,7 @@
-import { createMemoryHistory, createRouter } from "vue-router";
+import { createWebHistory, createRouter } from "vue-router";
 
 const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(),
   routes: [
     { path: "/", name: "集团简介", component: () => import("@/view/Home.vue") },
     {

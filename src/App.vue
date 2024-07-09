@@ -23,7 +23,11 @@
                 style="font-family: qlls">
                 <span>香</span><span>龍</span><span>香</span><span>料</span>
               </div>
-              <div style="font-family: '宋体'">FRAGRANT DRAGON GROUP</div>
+              <div
+                class="Capitalized"
+                style="font-family: cinzel; font-size: 0.85rem">
+                <span>F</span>RAGRANT <span>D</span>RAGON <span>C</span>O.
+              </div>
             </div>
           </RouterLink>
           <!-- 下拉菜单 -->
@@ -103,7 +107,7 @@
     },
     { text: "营销网络", url: "/Sales_Network" },
   ]);
-  const showHeader = ref(false);
+  const showHeader = ref(true);
 
   const showDropdown = throttle((i, target) => {
     i.show = target;
@@ -137,5 +141,8 @@
   }
   header {
     backdrop-filter: blur(10px);
+  }
+  .Capitalized span {
+    font-size: 1.05rem;
   }
 </style>

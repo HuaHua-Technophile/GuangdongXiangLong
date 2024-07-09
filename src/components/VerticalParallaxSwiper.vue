@@ -18,9 +18,10 @@
       slot="container-start"
       data-swiper-parallax="-50%"
       class="position-absolute vw-100"
+      :style="{ background: 'url(../../src/assets/image/' + props.bg + ')' }"
       style="
         height: 200%;
-        background: url(../../src/assets/image/bg1.webp) center;
+        background-position: center;
         background-size: cover;
       "></div>
     <!-- 插槽 -->
@@ -31,6 +32,11 @@
   import type { SwiperContainer } from "swiper/element";
   import { onMounted, ref } from "vue";
 
+  // 滑动事件-----------------
+  const props = defineProps<{
+    onSlideChange: Function;
+    bg: string;
+  }>();
   const emit = defineEmits<{
     changeSwiperEl: [swiperOut: SwiperContainer];
   }>();
@@ -53,9 +59,4 @@
     swiperOut.value?.initialize();
     emit("changeSwiperEl", swiperOut.value!);
   });
-
-  // 滑动事件-----------------
-  const props = defineProps<{
-    onSlideChange: Function;
-  }>();
 </script>

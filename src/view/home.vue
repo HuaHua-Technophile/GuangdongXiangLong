@@ -1,6 +1,7 @@
 <template>
   <VerticalParallaxSwiper
     :onSlideChange="onSlideChange"
+    bg="bg1.webp"
     @changeSwiperEl="changeSwiperEl">
     <swiper-slide class="vw-100">
       <!-- 首屏介绍 -->
@@ -14,12 +15,18 @@
           backdrop-filter: blur(5px);
         ">
         <!-- LOGO -->
-        <div class="text-center animate__animated animate__fadeInUp">
+        <div
+          :ref="(el) => removeClass.push(el)"
+          class="text-center animate__animated animate__fadeInUp"
+          data-swiper-parallax="-600">
           <img src="../assets/image/LOGO.webp" style="width: 150px" />
         </div>
         <!-- 文本 -->
         <div class="text-center lh-1" style="margin-top: 2.2vh">
-          <div class="animate__animated animate__fadeInUp animate__delay-1s">
+          <div
+            :ref="(el) => removeClass.push(el)"
+            class="animate__animated animate__fadeInUp animate__delay-1s"
+            data-swiper-parallax="-450">
             <div
               style="
                 font-family: qlls;
@@ -29,6 +36,7 @@
               廣東香龍香料
             </div>
             <div
+              class="Capitalized"
               style="
                 font-family: cinzel;
                 font-size: 1.8rem;
@@ -53,7 +61,9 @@
               font-family: MisansTC-Light;
               font-size: 1.3rem;
               margin-top: 4.2vh;
-            ">
+            "
+            :ref="(el) => removeClass.push(el)"
+            data-swiper-parallax="-300">
             <div style="margin-bottom: 4.2vh">專營產品及服務</div>
             <div style="line-height: 170%">
               煙用香精、食用香料、日化香料<br />植物提取、再造煙葉、研發銷售
@@ -66,7 +76,9 @@
               width: 70%;
               margin-top: 4.2vh;
             "
-            class="text-start mx-auto animate__animated animate__fadeInUp animate__delay-3s">
+            class="text-start mx-auto animate__animated animate__fadeInUp animate__delay-3s"
+            :ref="(el) => removeClass.push(el)"
+            data-swiper-parallax="-150">
             <div>Specialized Products and Services:</div>
             <div style="margin-top: 2.2vh">
               Tobacco Flavors, Food Flavors, Daily Chemical Flavors Plant
@@ -234,7 +246,10 @@
   import type { SwiperContainer } from "swiper/element";
   import type { Swiper } from "swiper/types";
 
+  // 首页第一屏不展示顶栏,未渲染DOM前将其隐藏
   const showHeader = defineModel<boolean>("showHeader");
+  showHeader.value = false;
+
   const swiperInside = ref<[SwiperContainer]>();
   // 页面加载完成后便实例化所有内层swiper，避免出现没有背景图片。但是暂时禁用避免多余性能消耗
   onMounted(() => {
@@ -263,6 +278,16 @@
       } else showHeader.value = false;
     }
   };
+
+  const removeClass = ref<any>([]);
+  onMounted(() => {
+    setTimeout(() => {
+      for (let item of removeClass.value) {
+        item.classList.remove("animate__animated");
+      }
+    }, 3000);
+  });
+
   // 点击按钮跳转下一页
   const swiperOut = ref<SwiperContainer>();
   // 接受实例化后的swiper
@@ -312,6 +337,9 @@
     span {
       font-size: 2.4rem;
     }
+  }
+  .animate__animated {
+    --animate-delay: 600ms;
   }
   @keyframes scale1 {
     0% {
