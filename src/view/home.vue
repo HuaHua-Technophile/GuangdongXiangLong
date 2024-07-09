@@ -105,26 +105,18 @@
         }"
         class="position-absolute w-100 h-100 swiper-liner"
         style="z-index: 1">
-        <swiper-slide class="position-relative">
+        <swiper-slide v-for="j in i.bg" class="position-relative">
           <div
             class="w-100 h-100"
-            style="
-              background: url(../../src/assets/image/jituan1.jpg) center;
-              background-size: cover;
-            "></div>
-        </swiper-slide>
-        <swiper-slide>
-          <div
-            class="w-100 h-100"
-            style="
-              background: url(../../src/assets/image/jituan2.jpg) center;
-              background-size: cover;
-            "></div>
+            :style="{
+              background: 'url(../../src/assets/image/' + j + ')',
+            }"
+            style="background-position: center; background-size: cover"></div>
         </swiper-slide>
       </swiper-container>
       <!-- 一层暗色遮罩，与其他相关装饰 -->
       <div
-        class="position-absolute w-100 h-100 bg-black bg-opacity-25"
+        class="position-absolute w-100 h-100 bg-black bg-opacity-50"
         :class="{ decorativeStart: i.decorative }"
         style="z-index: 2">
         <!-- 左上角空心 -->
@@ -173,14 +165,70 @@
         </svg>
       </div>
       <!-- 内容 -->
-      <div class="position-absolute" style="z-index: 999; padding-top: 4rem">
-        <div class="fs-1">{{ i.title }}</div>
-        <div>{{ i.content }}</div>
+      <div
+        class="position-absolute w-100 h-100 d-flex align-items-center justify-content-center"
+        style="z-index: 999; padding-top: 4rem">
+        <div class="container" style="padding: 0 8rem">
+          <div
+            class="fs-4 text-white d-flex align-items-center text-uppercase"
+            style="
+              letter-spacing: 0.08rem;
+              word-spacing: 0.12rem;
+              font-family: 'Kumbh Sans';
+              font-weight: 500;
+              text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            "
+            data-swiper-parallax="-600">
+            <div
+              class="border rounded-5 me-2"
+              style="height: 16px; width: 40px; --bs-border-width: 1.5px">
+              <div
+                class="bg-white h-100 rounded-5 float-end"
+                style="width: 66.6%"></div>
+            </div>
+            {{ i.enTitle }}
+          </div>
+          <div
+            class="text-white fw-bold mt-4"
+            style="
+              text-shadow: 1px 1px 4px black;
+              font-size: 3.5rem;
+              letter-spacing: 0.5rem;
+            "
+            data-swiper-parallax="-450">
+            {{ i.title }}
+          </div>
+          <div
+            class="text-white opacity-75 mt-4"
+            style="
+              font-size: 1.2rem;
+              text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            "
+            data-swiper-parallax="-300">
+            {{ i.content }}
+          </div>
+          <RouterLink
+            to="/Corporate_Culture"
+            class="rounded shadow text-white ps-4 pe-2 py-3 mt-5 text-decoration-none d-inline-flex align-items-center"
+            style="
+              background: linear-gradient(
+                90deg,
+                rgb(40, 149, 103),
+                var(--bs-xlxl)
+              );
+              font-family: 'Kumbh Sans';
+              font-weight: 600;
+            "
+            data-swiper-parallax="-150">
+            Explore More
+            <i
+              class="bi bi-arrow-right fs-5 ms-4 animate__animated animate__slideInLeft animate__infinite"></i>
+          </RouterLink>
+        </div>
       </div>
     </swiper-slide>
   </VerticalParallaxSwiper>
 </template>
-
 <script lang="ts" setup>
   import { onMounted, ref } from "vue";
   import type { SwiperContainer } from "swiper/element";
@@ -227,25 +275,33 @@
   const text = ref([
     {
       decorative: false,
+      enTitle: "Company Profile",
       title: "实力",
+      bg: ["jituan1.webp", "jituan2.webp"],
       content:
         "香龙集团是一家集开发、生产、销售于一体的高新技术企业，专业生产天然植物提物、香精香料和精细化工产品等，产品广泛应用于烟草、食品、日化、医药等行业。集团属下企业有6家分公司，广东香龙香料有限公司、广州市香龙化工香料有限公司、佰律多国际香料（香港）有限公司、韶关市港龙生物技术有限公司、河南长葛市万花香料有限公司、湖北咸丰县鸿基生物化工有限公司。公司拥有先进的实验检测仪器和生产设备,具有较强的科研开发和生产能力,年生产能力达10000吨以上。",
     },
     {
       decorative: false,
+      enTitle: "Quality Management",
       title: "质量",
+      bg: ["labs1.webp", "labs2.webp", "labs3.webp", "labs4.webp"],
       content:
         '公司坚持"质量为本、顾客为尊"的质量方针,以"研一流产品,创一流品牌"为经营方针,对产品整个生产和服务过程进行科学的质量管理。公司本着"集客所需,信誉至上"的经营理念,不断加大产品开发力度,增加技术储备,把科研与开发作为企业的发展之源。',
     },
     {
       decorative: false,
+      enTitle: "Brand Building",
       title: "品牌",
+      bg: ["branding1.webp", "branding2.webp", "branding3.webp"],
       content:
         '公司正努力把"香龙"香料创造为名优品牌,提升市场竞争力,研发出更加健康、安全、天然的新产品。公司坚持把品牌建设作为企业发展的核心,致力于打造一个"科研国际化、技术产业化、产品多元化"的新格局。',
     },
     {
       decorative: false,
+      enTitle: "Future Development",
       title: "展望",
+      bg: ["future1.webp", "future2.webp"],
       content:
         '香龙集团将继续秉持"质量为本、顾客为尊"的理念,以"研一流产品,创一流品牌"为目标,不断创新发展,努力将"香龙"品牌打造成为行业内的知名品牌,为客户提供更优质的产品和服务。',
     },
@@ -308,7 +364,6 @@
     border: 2px solid rgba(255, 255, 255, 0.75);
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.5), inset 0 0 7px rgba(0, 0, 0, 0.5);
   }
-
   .decorativeStart {
     --delay: 500ms;
     --aniTime: 1500ms;
@@ -412,5 +467,8 @@
       animation: a8 var(--aniTime) forwards;
       animation-delay: calc(var(--delay) * 3);
     }
+  }
+  .animate__slideInLeft {
+    animation-direction: alternate-reverse !important;
   }
 </style>

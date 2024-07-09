@@ -12,6 +12,7 @@
     "@types/node": "^20.14.10",
     "animate.css": "^4.1.1",
     "bootstrap": "5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "element-plus": "^2.7.6",
     "lodash": "^4.17.21",
     "swiper": "^11.1.4",
