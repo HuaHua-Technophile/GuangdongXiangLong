@@ -2,7 +2,8 @@
   <swiper-container
     ref="swiperOut"
     :pagination="true"
-    :pagination-clickable="true"
+    :pagination-type="'progressbar'"
+    :dragSize="10"
     :speed="1500"
     :direction="'vertical'"
     :mousewheel="true"
@@ -37,6 +38,18 @@
   // 延迟DOM加载后实例化------------
   const swiperOut = ref<SwiperContainer>();
   onMounted(() => {
+    Object.assign(swiperOut.value!, {
+      injectStyles: [
+        `:host {
+          --swiper-theme-color: var(--bs-xlxl);
+        }
+        .swiper-vertical>.swiper-pagination-progressbar{
+          --swiper-pagination-progressbar-size:5px;
+          left:calc(100% - var(--swiper-pagination-progressbar-size, 4px));
+        }
+        `,
+      ],
+    });
     swiperOut.value?.initialize();
     emit("changeSwiperEl", swiperOut.value!);
   });
