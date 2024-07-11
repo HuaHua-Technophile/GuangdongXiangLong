@@ -7,7 +7,7 @@
       class="vw-100 position-fixed top-0 bg-white bg-opacity-50 shadow"
       v-show="showHeader"
       style="z-index: 9999999">
-      <div class="container-sm">
+      <div class="container">
         <div class="d-flex justify-content-between">
           <!-- 公司LOGO -->
           <RouterLink
@@ -38,7 +38,7 @@
             @mouseleave="showDropdown(i, false)">
             <!-- 有子项,不设置100%高度则鼠标与dropdown之间存在缝隙 -->
             <div v-if="i.dropdown" class="h-100 d-flex align-items-center">
-              <div class="changeColor transition800">{{ i.text }}</div>
+              <div class="changeColor transition750">{{ i.text }}</div>
               <transition
                 enter-active-class="animate__animated animate__faster animate__fadeInUp"
                 leave-active-class="animate__animated animate__faster animate__fadeOutUp">
@@ -58,7 +58,7 @@
             <RouterLink
               v-else
               :to="i.url"
-              class="text-decoration-none text-black changeColor transition800">
+              class="text-decoration-none text-black changeColor transition750">
               {{ i.text }}
             </RouterLink>
           </div>

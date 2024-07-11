@@ -3,7 +3,7 @@
 
 //字体图标-------------------
 @use "bootstrap-icons/font/bootstrap-icons.css"; //最先导入bootstrap icon字体图标
-
+@use "./iconfont/iconfont.scss";
 //动画------------------------------
 @use "animate.css";
 
@@ -27,11 +27,14 @@
 .transition500 {
   transition: all 0.5s;
 }
-.transition800 {
-  transition: all 0.8s;
+.transition750 {
+  transition: all 0.75s;
 }
 .transition1000 {
   transition: all 1s;
+}
+.transition1250 {
+  transition: all 1.25s;
 }
 .transition1500 {
   transition: all 1.5s;

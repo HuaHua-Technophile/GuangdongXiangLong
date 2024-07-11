@@ -6,9 +6,9 @@
     :dragSize="10"
     :speed="1500"
     :direction="'vertical'"
-    :mousewheel="true"
     :grab-cursor="true"
     :keyboard="true"
+    :mousewheel="true"
     :parallax="true"
     :init="false"
     @swiperslidechange="props.onSlideChange"
@@ -16,14 +16,13 @@
     <!-- swiper背景图，absolute绝对定位后才能适配parallax视差 -->
     <div
       slot="container-start"
-      data-swiper-parallax="-50%"
+      :data-swiper-parallax="bgParallax"
       class="position-absolute vw-100"
-      :style="{ background: 'url(../../src/assets/image/' + props.bg + ')' }"
-      style="
-        height: 200%;
-        background-position: center;
-        background-size: cover;
-      "></div>
+      :style="{
+        background: 'url(../../src/assets/image/' + props.bg + ')',
+        height: props.bgHeight,
+      }"
+      style="background-position: center; background-size: cover"></div>
     <!-- 插槽 -->
     <slot></slot>
   </swiper-container>
@@ -33,10 +32,19 @@
   import { onMounted, ref } from "vue";
 
   // 滑动事件-----------------
-  const props = defineProps<{
-    onSlideChange: Function;
-    bg: string;
-  }>();
+  const props = withDefaults(
+    defineProps<{
+      onSlideChange?: Function;
+      bg?: string;
+      bgParallax?: string;
+      bgHeight?: string;
+    }>(),
+    {
+      bg: "bg1.webp",
+      bgParallax: "-50%",
+      bgHeight: "200%",
+    }
+  );
   const emit = defineEmits<{
     changeSwiperEl: [swiperOut: SwiperContainer];
   }>();

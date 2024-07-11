@@ -1,8 +1,8 @@
 <template>
   <VerticalParallaxSwiper
     :onSlideChange="onSlideChange"
-    bg="bg1.webp"
-    @changeSwiperEl="changeSwiperEl">
+    @changeSwiperEl="changeSwiperEl"
+    :spaceBetween="2">
     <swiper-slide class="vw-100">
       <!-- 首屏介绍 -->
       <div
@@ -90,7 +90,7 @@
       <!-- 下拉箭头 -->
       <div
         class="DropdownArrow position-absolute bottom-0 start-50"
-        @click="slideToNext">
+        @click="swiperOut?.swiper.slideNext()">
         <span></span>
         <span></span>
       </div>
@@ -99,11 +99,14 @@
       <!-- 背景 -->
       <swiper-container
         ref="swiperInside"
-        init="false"
-        loop="true"
-        :autoplay-delay="3000"
+        :init="false"
+        :loop="true"
+        :keyboard="false"
+        :mousewheel="false"
+        :allowTouchMove="false"
+        :autoplay-delay="random(2000, 4000)"
         :autoplay-disable-on-interaction="false"
-        :speed="8000"
+        :speed="random(7000, 9000)"
         effect="creative"
         :creativeEffect="{
           prev: {
@@ -127,55 +130,57 @@
         </swiper-slide>
       </swiper-container>
       <!-- 一层暗色遮罩，与其他相关装饰 -->
-      <div
+      <UseElementVisibility
+        v-slot="{ isVisible }"
         class="position-absolute w-100 h-100 bg-black bg-opacity-50"
-        :class="{ decorativeStart: i.decorative }"
         style="z-index: 2">
-        <!-- 左上角空心 -->
-        <div class="decorative decorative-line position-absolute ani1"></div>
-        <!-- 左上角三角形 -->
-        <div
-          class="decorative bg-xlxl position-absolute shadow ani2"
-          style="
-            width: var(--decorative-size);
-            height: var(--decorative-size);
-          "></div>
-        <!-- 右上角四个三角形 -->
-        <div
-          class="decorative decorative-line position-absolute end-0 ani3"></div>
-        <div
-          class="decorative decorative-line position-absolute end-0 ani4"></div>
-        <div
-          class="decorative decorative-line position-absolute end-0 ani5"></div>
-        <div
-          class="decorative decorative-line position-absolute end-0 ani6"></div>
-        <!-- 右下角不规则装饰 -->
-        <svg
-          width="350"
-          height="175"
-          xmlns="http://www.w3.org/2000/svg"
-          version="2"
-          class="position-absolute end-0 bottom-0 ani7">
-          <path
-            id="svg_1"
-            d="m2.28498,174.78549c83,-67 87,-84 186.99999,-46c100,38 133.99999,36 159.99999,-123.99999c26,-159.99999 16,187.99999 15.71504,187.2145c0.28496,0.78549 -373.71502,-8.21451 -373,-9c-0.71502,0.78549 10.28498,-8.21451 10.28498,-8.21451z"
-            fill="#006D3F" />
-        </svg>
-        <svg
-          width="350"
-          height="175"
-          xmlns="http://www.w3.org/2000/svg"
-          version="2"
-          class="position-absolute bottom-0 end-0 ani8">
-          <path
-            id="svg_1"
-            d="m2.28498,174.78549c83,-67 87,-84 186.99999,-46c100,38 133.99999,36 159.99999,-123.99999c26,-159.99999 16,187.99999 15.71504,187.2145c0.28496,0.78549 -373.71502,-8.21451 -373,-9c-0.71502,0.78549 10.28498,-8.21451 10.28498,-8.21451z"
-            stroke-opacity="0.7"
-            stroke="#ffffff"
-            stroke-width="1.3"
-            fill="#00000000" />
-        </svg>
-      </div>
+        <div :class="{ AniStart: isVisible }">
+          <!-- 左上角空心 -->
+          <div class="decorative decorative-line position-absolute ani1"></div>
+          <!-- 左上角三角形 -->
+          <div
+            class="decorative bg-xlxl position-absolute shadow ani2"
+            style="
+              width: var(--decorative-size);
+              height: var(--decorative-size);
+            "></div>
+          <!-- 右上角四个三角形 -->
+          <div
+            class="decorative decorative-line position-absolute end-0 ani3"></div>
+          <div
+            class="decorative decorative-line position-absolute end-0 ani4"></div>
+          <div
+            class="decorative decorative-line position-absolute end-0 ani5"></div>
+          <div
+            class="decorative decorative-line position-absolute end-0 ani6"></div>
+          <!-- 右下角不规则装饰 -->
+          <svg
+            width="350"
+            height="175"
+            xmlns="http://www.w3.org/2000/svg"
+            version="2"
+            class="position-absolute end-0 bottom-0 ani7">
+            <path
+              id="svg_1"
+              d="m2.28498,174.78549c83,-67 87,-84 186.99999,-46c100,38 133.99999,36 159.99999,-123.99999c26,-159.99999 16,187.99999 15.71504,187.2145c0.28496,0.78549 -373.71502,-8.21451 -373,-9c-0.71502,0.78549 10.28498,-8.21451 10.28498,-8.21451z"
+              fill="#006D3F" />
+          </svg>
+          <svg
+            width="350"
+            height="175"
+            xmlns="http://www.w3.org/2000/svg"
+            version="2"
+            class="position-absolute bottom-0 end-0 ani8">
+            <path
+              id="svg_1"
+              d="m2.28498,174.78549c83,-67 87,-84 186.99999,-46c100,38 133.99999,36 159.99999,-123.99999c26,-159.99999 16,187.99999 15.71504,187.2145c0.28496,0.78549 -373.71502,-8.21451 -373,-9c-0.71502,0.78549 10.28498,-8.21451 10.28498,-8.21451z"
+              stroke-opacity="0.7"
+              stroke="#ffffff"
+              stroke-width="1.3"
+              fill="#00000000" />
+          </svg>
+        </div>
+      </UseElementVisibility>
       <!-- 内容 -->
       <div
         class="position-absolute w-100 h-100 d-flex align-items-center justify-content-center"
@@ -242,61 +247,58 @@
   </VerticalParallaxSwiper>
 </template>
 <script lang="ts" setup>
-  import { onMounted, ref } from "vue";
+  import { onMounted, onUnmounted, ref } from "vue";
   import type { SwiperContainer } from "swiper/element";
   import type { Swiper } from "swiper/types";
+  import { UseElementVisibility } from "@vueuse/components";
+  import { random } from "lodash";
+
+  document.title = "广东香龙香料";
 
   // 首页第一屏不展示顶栏,未渲染DOM前将其隐藏
   const showHeader = defineModel<boolean>("showHeader");
   showHeader.value = false;
 
+  // 页面加载完成后便实例化所有内层swiper，避免出现没有背景图片。暂时禁用避免多余性能消耗
   const swiperInside = ref<[SwiperContainer]>();
-  // 页面加载完成后便实例化所有内层swiper，避免出现没有背景图片。但是暂时禁用避免多余性能消耗
-  onMounted(() => {
-    for (let item of swiperInside.value!) {
-      item.initialize();
-      // item.swiper.disable();
-    }
-  });
   const onSlideChange = (e: CustomEvent<[Swiper]>) => {
-    // onSlideChange事件会被内层swiper实例触发，莫名其妙？？？，于是在最外层再做一次判断来自哪个实例触发
+    // onSlideChange事件会被内层swiper实例触发，莫名其妙？？？，且无法通过event.stopPropagation组织冒泡.于是在最外层再做一次判断来自哪个实例触发
     if (e.detail[0] == swiperOut.value?.swiper) {
       if (e.detail[0].activeIndex != 0) {
         showHeader.value = true;
-        if (!text.value[e.detail[0].activeIndex - 1].decorative)
-          text.value[e.detail[0].activeIndex - 1].decorative = true;
         // 滚动到第几页,第几个swiper实例重新实例化,其他进行销毁
-        /* for (let i in swiperInside.value!) {
-          if (Number(i) == e.detail[0].activeIndex - 1) {
-            console.log(
-              "重新实例化第" + (Number(i) + 1),
-              swiperInside.value[i]
-            );
-            swiperInside.value[i].swiper.enable();
-          } else swiperInside.value[i].swiper.disable();
-        } */
+        if (!swiperInside.value![e.detail[0].activeIndex - 1].swiper)
+          swiperInside.value![e.detail[0].activeIndex - 1].initialize();
+
+        /* else {
+            console.log("销毁inSwiper第" + i);
+            swiperInside.value![i].swiper.disable();
+          } */
       } else showHeader.value = false;
     }
   };
 
+  // 页首动效定时移除
   const removeClass = ref<any>([]);
+  let timeOut: number;
   onMounted(() => {
-    setTimeout(() => {
+    timeOut = setTimeout(() => {
       for (let item of removeClass.value) {
         item.classList.remove("animate__animated");
       }
     }, 3000);
   });
+  onUnmounted(() => {
+    clearTimeout(timeOut);
+  });
 
-  // 点击按钮跳转下一页
+  // 点击按钮跳转下一页，接受实例化后的swiper
   const swiperOut = ref<SwiperContainer>();
-  // 接受实例化后的swiper
   const changeSwiperEl = (data: SwiperContainer) => {
     swiperOut.value = data;
   };
-  const slideToNext = () => {
-    swiperOut.value?.swiper.slideNext();
-  };
+
+  // 数据---------------
   const text = ref([
     {
       decorative: false,
@@ -341,7 +343,7 @@
   .animate__animated {
     --animate-delay: 600ms;
   }
-  @keyframes scale1 {
+  @keyframes ArrowScale {
     0% {
       transform: translateX(-50%) scale(1, 1);
     }
@@ -349,7 +351,7 @@
       transform: translateX(-50%) scale(1.2, 1.2);
     }
   }
-  @keyframes shadow1 {
+  @keyframes ArrowShadow {
     0% {
       box-shadow: 0 0 5px rgba(255, 255, 255, 1);
     }
@@ -359,13 +361,13 @@
   }
   .DropdownArrow {
     display: flex;
-    animation: scale1 1s linear infinite alternate-reverse;
+    animation: ArrowScale 1s linear infinite alternate-reverse;
     > span {
       width: 35px;
       height: 5px;
       background: rgba(255, 255, 255, 0.75);
       border-radius: 999px;
-      animation: shadow1 0.5s linear infinite alternate-reverse;
+      animation: ArrowShadow 0.5s linear infinite alternate-reverse;
       &:first-child {
         transform-origin: right bottom;
         transform: rotate(30deg);
@@ -392,109 +394,105 @@
     border: 2px solid rgba(255, 255, 255, 0.75);
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.5), inset 0 0 7px rgba(0, 0, 0, 0.5);
   }
-  .decorativeStart {
+  .ani1 {
+    transform: translate(-50%, 20%) rotate(45deg);
+  }
+  @keyframes a1 {
+    0% {
+      transform: translate(-100%, 20%) rotate(45deg);
+    }
+  }
+  .ani2 {
+    transform: translate(-50%, 10%) rotate(45deg);
+  }
+  @keyframes a2 {
+    0% {
+      transform: translate(-100%, 20%) rotate(45deg);
+    }
+  }
+  .ani3 {
+    transform: translate(50%, -10%) rotate(45deg);
+  }
+  @keyframes a3 {
+    0% {
+      transform: translate(150%, -10%) rotate(45deg);
+    }
+  }
+  .ani4 {
+    transform: translate(60%, -10%) rotate(45deg);
+  }
+  @keyframes a4 {
+    0% {
+      transform: translate(150%, -10%) rotate(45deg);
+    }
+  }
+  .ani5 {
+    transform: translate(70%, -10%) rotate(45deg);
+  }
+  @keyframes a5 {
+    0% {
+      transform: translate(150%, -10%) rotate(45deg);
+    }
+  }
+  .ani6 {
+    transform: translate(80%, -10%) rotate(45deg);
+  }
+  @keyframes a6 {
+    0% {
+      transform: translate(150%, -10%) rotate(45deg);
+    }
+  }
+  .ani7 {
+    transform: translate(0, 0);
+  }
+  @keyframes a7 {
+    0% {
+      transform: translate(100%, 0);
+    }
+  }
+  .ani8 {
+    transform: rotate(-3deg) scale(1.2, 1.6) translate(-22px, -30px);
+  }
+  @keyframes a8 {
+    0% {
+      transform: rotate(-3deg) scale(1.2, 1.6) translate(100%, -30px);
+    }
+  }
+  .AniStart {
     --delay: 500ms;
     --aniTime: 1500ms;
-    @keyframes a1 {
-      0% {
-        transform: translate(-100%, 20%) rotate(45deg);
-      }
-      100% {
-        transform: translate(-50%, 20%) rotate(45deg);
-      }
+    .ani1 {
+      animation: a1 var(--aniTime) both;
     }
-    & .ani1 {
-      animation: a1 var(--aniTime) forwards;
-    }
-    @keyframes a2 {
-      0% {
-        transform: translate(-100%, 20%) rotate(45deg);
-      }
-      100% {
-        transform: translate(-50%, 10%) rotate(45deg);
-      }
-    }
-    & .ani2 {
-      transform: translate(-100%, 20%) rotate(45deg);
-      animation: a2 calc(var(--aniTime) + (var(--delay) * 2)) forwards;
+    .ani2 {
+      animation: a2 calc(var(--aniTime) + (var(--delay) * 2)) both;
       animation-delay: calc(var(--delay) * 3);
     }
-    @keyframes a3 {
-      0% {
-        transform: translate(150%, -10%) rotate(45deg);
-      }
-      100% {
-        transform: translate(50%, -10%) rotate(45deg);
-      }
+    .ani3 {
+      animation: a3 var(--aniTime) both;
     }
-    @keyframes a4 {
-      0% {
-        transform: translate(150%, -10%) rotate(45deg);
-      }
-      100% {
-        transform: translate(60%, -10%) rotate(45deg);
-      }
-    }
-    @keyframes a5 {
-      0% {
-        transform: translate(150%, -10%) rotate(45deg);
-      }
-      100% {
-        transform: translate(70%, -10%) rotate(45deg);
-      }
-    }
-    @keyframes a6 {
-      0% {
-        transform: translate(150%, -10%) rotate(45deg);
-      }
-      100% {
-        transform: translate(80%, -10%) rotate(45deg);
-      }
-    }
-    & .ani3 {
-      animation: a3 var(--aniTime) forwards;
-    }
-    & .ani4 {
-      transform: translate(150%, -10%) rotate(45deg);
-      animation: a4 var(--aniTime) forwards;
+    .ani4 {
+      animation: a4 var(--aniTime) both;
       animation-delay: var(--delay);
     }
-    & .ani5 {
-      transform: translate(150%, -10%) rotate(45deg);
-      animation: a5 var(--aniTime) forwards;
+    .ani5 {
+      animation: a5 var(--aniTime) both;
       animation-delay: calc(var(--delay) * 2);
     }
-    & .ani6 {
-      transform: translate(150%, -10%) rotate(45deg);
-      animation: a6 var(--aniTime) forwards;
+    .ani6 {
+      animation: a6 var(--aniTime) both;
       animation-delay: calc(var(--delay) * 3);
     }
-    @keyframes a7 {
-      0% {
-        transform: translate(100%, 0);
-      }
-      100% {
-        transform: translate(0, 0);
-      }
-    }
-    & .ani7 {
-      transform: translate(100%, 0);
-      animation: a7 var(--aniTime) forwards;
+    .ani7 {
+      animation: a7 var(--aniTime) both;
       animation-delay: calc(var(--delay) * 1.5);
     }
-    @keyframes a8 {
-      0% {
-        transform: rotate(-3deg) scale(1.2, 1.6) translate(100%, -30px);
-      }
-      100% {
-        transform: rotate(-3deg) scale(1.2, 1.6) translate(-22px, -30px);
-      }
-    }
-    & .ani8 {
-      transform: rotate(-3deg) scale(1.2, 1.6) translate(100%, -30px);
-      animation: a8 var(--aniTime) forwards;
+    .ani8 {
+      animation: a8 var(--aniTime) both;
       animation-delay: calc(var(--delay) * 3);
     }
+  }
+  .AniEnd {
   }
   .animate__slideInLeft {
     animation-direction: alternate-reverse !important;
