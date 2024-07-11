@@ -10,6 +10,7 @@
     :keyboard="true"
     :mousewheel="true"
     :parallax="true"
+    slides-per-view="auto"
     :init="false"
     @swiperslidechange="props.onSlideChange"
     class="swiperOut vw-100 vh-100">
@@ -42,7 +43,7 @@
     {
       bg: "bg1.webp",
       bgParallax: "-50%",
-      bgHeight: "200%",
+      bgHeight: "210%",
     }
   );
   const emit = defineEmits<{

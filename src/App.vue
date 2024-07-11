@@ -21,7 +21,7 @@
               <div
                 class="fs-2 d-flex justify-content-between"
                 style="font-family: qlls">
-                <span>香</span><span>龍</span><span>香</span><span>料</span>
+                香<span>龍</span><span>香</span>料
               </div>
               <div
                 class="Capitalized"

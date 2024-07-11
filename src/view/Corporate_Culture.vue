@@ -1,9 +1,5 @@
 <template>
-  <VerticalParallaxSwiper
-    free-mode="true"
-    slides-per-view="auto"
-    bgParallax="-50%"
-    bgHeight="220%">
+  <VerticalParallaxSwiper free-mode="true" bgParallax="-50%" bgHeight="220%">
     <swiper-slide
       class="vw-100 vh-100 d-flex align-items-center justify-content-center"
       style="
@@ -113,6 +109,8 @@
         </RouterLink>
       </UseElementVisibility>
     </swiper-slide>
+    <!-- 页脚 -->
+    <FootSlide></FootSlide>
   </VerticalParallaxSwiper>
 </template>
 <script lang="ts" setup>

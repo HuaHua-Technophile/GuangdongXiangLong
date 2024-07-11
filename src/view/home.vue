@@ -244,6 +244,8 @@
         </div>
       </div>
     </swiper-slide>
+    <!-- 页脚 -->
+    <FootSlide></FootSlide>
   </VerticalParallaxSwiper>
 </template>
 <script lang="ts" setup>
