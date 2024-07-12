@@ -2,18 +2,22 @@
   <swiper-slide
     class="vw-100 vh-100 d-flex align-items-center justify-content-center"
     :style="{
-      background: 'url(../../src/assets/image/' + props.bg + ')',
+      background: `url(/images/${props.bg})`,
     }"
     style="backgroude-position: center; background-size: cover">
     <!-- 左侧英文标题 -->
     <div
       :ref="(el) => removeClass.push(el)"
-      class="Capitalized animate__animated animate__fadeInUp"
-      style="font-family: cinzel; font-size: 4rem; text-shadow: 0 0 3px white"
+      class="FirstSlideCapitalized animate__animated animate__fadeInUp"
+      style="
+        font-family: Cinzel-Regular;
+        font-size: 4rem;
+        text-shadow: 0 0 3px white;
+      "
       data-swiper-parallax="-600"
       v-html="props.title"></div>
     <!-- 绿色滚动背景 -->
-    <div class="ms-3 h-100" style="--width: 380px">
+    <div class="ms-3 h-100" style="--width: 400px">
       <div
         :ref="(el) => removeClass.push(el)"
         class="h-100 bg-xlxl bg-opacity-50 rounded-3 shadow position-absolute h-100 animate__animated animate__fadeInUp animate__delay-2s"
@@ -42,11 +46,11 @@
   const props = defineProps<{ content: string; title: string; bg?: string }>();
 
   const removeClass = ref<any>([]);
-  let timeOut: number;
+  let timeOut: NodeJS.Timeout;
   onMounted(() => {
     timeOut = setTimeout(() => {
-      for (let item of removeClass.value) {
-        item.classList.remove("animate__animated");
+      for (let i = 0, len = removeClass.value.length; i < len; i++) {
+        removeClass.value[i].classList.remove("animate__animated");
       }
     }, 2400);
   });
@@ -55,11 +59,12 @@
     clearTimeout(timeOut);
   });
 </script>
-<style lang="scss" scoped>
-  .Capitalized span {
+<style lang="scss">
+  .FirstSlideCapitalized span {
     font-size: 5rem;
   }
-
+</style>
+<style lang="scss" scoped>
   .animate__animated {
     --animate-delay: 600ms;
   }

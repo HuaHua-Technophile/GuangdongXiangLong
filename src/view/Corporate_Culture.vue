@@ -51,7 +51,7 @@
           <div
             class="position-absolute w-100 h-100 rounded-5 opacity-25 bgLabs transition750"
             style="
-              background: url(../../src/assets/image/labs1.webp) center;
+              background: url('/images/labs1.webp') center;
               background-size: cover;
             "></div>
           <div

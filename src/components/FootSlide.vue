@@ -1,11 +1,11 @@
 <template>
   <swiper-slide
-    class="h-auto mx-auto container text-white pt-4 text-center"
+    class="h-auto mx-auto container text-white mt-4 text-center"
     style="text-shadow: 0 0 5px black">
     <div
       class="fs-1 text-xlxl"
       style="
-        font-family: qlls;
+        font-family: QinLiuLiShu;
         text-shadow: 0 0 5px white;
         letter-spacing: 0.5rem;
       ">
@@ -22,7 +22,7 @@
       class="text-white"
       >粤ICP备2024274959号-1</a
     >
-    <div style="font-family: cinzel">
+    <div style="font-family: Cinzel-Regular">
       Building 3, No. 10 Fenggu Road, Industrial Transfer Industrial Park,
       Zhenjiang, Shaoguan
     </div>
@@ -32,7 +32,7 @@
       gdxianglong@126.com
     </div>
 
-    <div style="font-family: cinzel" class="mt-4">
+    <div style="font-family: Cinzel-Regular" class="mt-4">
       © 2024 Fragrant Dragon CO. All Rights Reserved
     </div>
   </swiper-slide>

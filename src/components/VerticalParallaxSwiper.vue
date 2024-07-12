@@ -20,7 +20,7 @@
       :data-swiper-parallax="bgParallax"
       class="position-absolute vw-100"
       :style="{
-        background: 'url(../../src/assets/image/' + props.bg + ')',
+        background: `url(/images/${props.bg})`,
         height: props.bgHeight,
       }"
       style="background-position: center; background-size: cover"></div>
@@ -31,7 +31,6 @@
 <script lang="ts" setup>
   import type { SwiperContainer } from "swiper/element";
   import { onMounted, ref } from "vue";
-
   // 滑动事件-----------------
   const props = withDefaults(
     defineProps<{

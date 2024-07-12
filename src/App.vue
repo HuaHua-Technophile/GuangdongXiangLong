@@ -13,19 +13,16 @@
           <RouterLink
             class="d-flex align-items-center py-1 text-decoration-none"
             to="/">
-            <img
-              src="./assets/image/LOGO.webp"
-              style="width: 50px"
-              class="me-1" />
+            <img src="/images/LOGO.webp" style="width: 50px" class="me-1" />
             <div class="text-justify text-xlxl lh-1">
               <div
                 class="fs-2 d-flex justify-content-between"
-                style="font-family: qlls">
+                style="font-family: QinLiuLiShu">
                 香<span>龍</span><span>香</span>料
               </div>
               <div
                 class="Capitalized"
-                style="font-family: cinzel; font-size: 0.85rem">
+                style="font-family: Cinzel-Regular; font-size: 0.85rem">
                 <span>F</span>RAGRANT <span>D</span>RAGON <span>C</span>O.
               </div>
             </div>

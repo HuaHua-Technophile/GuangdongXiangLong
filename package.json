@@ -15,7 +15,7 @@
     "animate.css": "^4.1.1",
     "bootstrap": "5.3.3",
     "bootstrap-icons": "^1.11.3",
-    "element-plus": "^2.7.6",
+    "countup.js": "^2.8.0",
     "lodash": "^4.17.21",
     "swiper": "^11.1.4",
     "vue": "^3.4.31",
@@ -24,9 +24,9 @@
   "devDependencies": {
     "@types/lodash": "^4.17.6",
     "@vitejs/plugin-vue": "^5.0.5",
-    "sass": "^1.77.7",
+    "sass": "^1.77.8",
     "typescript": "^5.5.3",
-    "unplugin-auto-import": "^0.17.6",
+    "unplugin-auto-import": "^0.17.8",
     "unplugin-vue-components": "^0.27.2",
     "vite": "^5.3.3",
     "vue-tsc": "^2.0.26"

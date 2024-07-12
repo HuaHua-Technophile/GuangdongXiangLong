@@ -24,10 +24,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    },
-
-    // 指定全局组件类型
-    "types": ["element-plus/global"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

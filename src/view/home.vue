@@ -19,7 +19,7 @@
           :ref="(el) => removeClass.push(el)"
           class="text-center animate__animated animate__fadeInUp"
           data-swiper-parallax="-600">
-          <img src="../assets/image/LOGO.webp" style="width: 150px" />
+          <img src="/images/LOGO.webp" style="width: 150px" />
         </div>
         <!-- 文本 -->
         <div class="text-center lh-1" style="margin-top: 2.2vh">
@@ -29,7 +29,7 @@
             data-swiper-parallax="-450">
             <div
               style="
-                font-family: qlls;
+                font-family: QinLiuLiShu;
                 font-size: 3.9rem;
                 letter-spacing: 13px;
               ">
@@ -38,7 +38,7 @@
             <div
               class="Capitalized"
               style="
-                font-family: cinzel;
+                font-family: Cinzel-Regular;
                 font-size: 1.8rem;
                 word-spacing: 15px;
                 margin-top: 1.2vh;
@@ -47,7 +47,7 @@
             </div>
             <div
               style="
-                font-family: qlls;
+                font-family: QinLiuLiShu;
                 font-size: 2.8rem;
                 letter-spacing: 10px;
                 margin-top: 2.7vh;
@@ -124,7 +124,7 @@
           <div
             class="w-100 h-100"
             :style="{
-              background: 'url(../../src/assets/image/' + j + ')',
+              background: `url(/images/${j})`,
             }"
             style="background-position: center; background-size: cover"></div>
         </swiper-slide>
@@ -282,12 +282,13 @@
 
   // 页首动效定时移除
   const removeClass = ref<any>([]);
-  let timeOut: number;
+  let timeOut: NodeJS.Timeout;
   onMounted(() => {
     timeOut = setTimeout(() => {
-      for (let item of removeClass.value) {
-        item.classList.remove("animate__animated");
+      for (let i = 0, len = removeClass.value.length; i < len; i++) {
+        removeClass.value[i].classList.remove("animate__animated");
       }
+      removeClass.value = [];
     }, 3000);
   });
   onUnmounted(() => {
