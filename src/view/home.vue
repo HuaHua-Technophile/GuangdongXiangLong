@@ -2,7 +2,7 @@
   <VerticalParallaxSwiper
     :onSlideChange="onSlideChange"
     @changeSwiperEl="changeSwiperEl"
-    :spaceBetween="2">
+    :spaceBetween="1">
     <swiper-slide class="vw-100">
       <!-- 首屏介绍 -->
       <div
@@ -19,7 +19,7 @@
           :ref="(el) => removeClass.push(el)"
           class="text-center animate__animated animate__fadeInUp"
           data-swiper-parallax="-600">
-          <img src="/images/LOGO.webp" style="width: 150px" />
+          <img loading="lazy" src="/images/LOGO.webp" style="width: 150px" />
         </div>
         <!-- 文本 -->
         <div class="text-center lh-1" style="margin-top: 2.2vh">
@@ -59,14 +59,16 @@
             class="animate__animated animate__fadeInUp animate__delay-2s"
             style="
               font-family: MisansTC-Light;
+              font-weight: 250;
               font-size: 1.3rem;
               margin-top: 4.2vh;
             "
             :ref="(el) => removeClass.push(el)"
             data-swiper-parallax="-300">
             <div style="margin-bottom: 4.2vh">專營產品及服務</div>
-            <div style="line-height: 170%">
-              煙用香精、食用香料、日化香料<br />植物提取、再造煙葉、研發銷售
+            <div style="line-height: 170%" class="fontFamilyChange">
+              煙用香精<span>、</span>食用香料<span>、</span>日化香料
+              <br />植物提取<span>、</span>再造煙葉<span>、</span>研發銷售
             </div>
           </div>
           <div
@@ -120,13 +122,12 @@
         }"
         class="position-absolute w-100 h-100 swiper-liner"
         style="z-index: 1">
-        <swiper-slide v-for="j in i.bg" class="position-relative">
-          <div
-            class="w-100 h-100"
-            :style="{
-              background: `url(/images/${j})`,
-            }"
-            style="background-position: center; background-size: cover"></div>
+        <swiper-slide v-for="j in i.bg">
+          <img
+            loading="lazy"
+            v-lazy="`/images/${j}`"
+            class="w-100 h-100 object-fit-cover"
+            style="object-position: center" />
         </swiper-slide>
       </swiper-container>
       <!-- 一层暗色遮罩，与其他相关装饰 -->
@@ -307,7 +308,7 @@
       decorative: false,
       enTitle: "Company Profile",
       title: "实力",
-      bg: ["jituan1.webp", "jituan2.webp"],
+      bg: ["jituan1.webp", "jituan2.jpeg"],
       content:
         "香龙集团是一家集开发、生产、销售于一体的高新技术企业，专业生产天然植物提物、香精香料和精细化工产品等，产品广泛应用于烟草、食品、日化、医药等行业。集团属下企业有6家分公司，广东香龙香料有限公司、广州市香龙化工香料有限公司、佰律多国际香料（香港）有限公司、韶关市港龙生物技术有限公司、河南长葛市万花香料有限公司、湖北咸丰县鸿基生物化工有限公司。公司拥有先进的实验检测仪器和生产设备,具有较强的科研开发和生产能力,年生产能力达10000吨以上。",
     },
@@ -315,7 +316,7 @@
       decorative: false,
       enTitle: "Quality Management",
       title: "质量",
-      bg: ["labs1.webp", "labs2.webp", "labs3.webp", "labs4.webp"],
+      bg: ["Labs1.jpeg", "Labs2.jpeg", "Labs3.jpeg", "Labs4.jpeg"],
       content:
         '公司坚持"质量为本、顾客为尊"的质量方针,以"研一流产品,创一流品牌"为经营方针,对产品整个生产和服务过程进行科学的质量管理。公司本着"集客所需,信誉至上"的经营理念,不断加大产品开发力度,增加技术储备,把科研与开发作为企业的发展之源。',
     },
@@ -331,7 +332,7 @@
       decorative: false,
       enTitle: "Future Development",
       title: "展望",
-      bg: ["future1.webp", "future2.webp"],
+      bg: ["future1.jpeg", "future2.webp"],
       content:
         '香龙集团将继续秉持"质量为本、顾客为尊"的理念,以"研一流产品,创一流品牌"为目标,不断创新发展,努力将"香龙"品牌打造成为行业内的知名品牌,为客户提供更优质的产品和服务。',
     },
@@ -495,9 +496,10 @@
       animation-delay: calc(var(--delay) * 3);
     }
   }
-  .AniEnd {
-  }
   .animate__slideInLeft {
     animation-direction: alternate-reverse !important;
+  }
+  .fontFamilyChange span {
+    font-family: var(--bs-body-font-family);
   }
 </style>

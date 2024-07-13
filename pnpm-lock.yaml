@@ -38,6 +38,9 @@ importers:
       vue:
         specifier: ^3.4.31
         version: 3.4.31(typescript@5.5.3)
+      vue-lazyload:
+        specifier: ^3.0.0
+        version: 3.0.0
       vue-router:
         specifier: ^4.4.0
         version: 4.4.0(vue@3.4.31(typescript@5.5.3))
@@ -737,6 +740,9 @@ packages:
       '@vue/composition-api':
         optional: true
 
+  vue-lazyload@3.0.0:
+    resolution: {integrity: sha512-h2keL/Rj550dLgesgOtXJS9qOiSMmuJNeVlfNAYV1/IYwOQYaWk5mFJlwRxmZDK9YC5gECcFLYYj7z1lKSf9ug==}
+
   vue-router@4.4.0:
     resolution: {integrity: sha512-HB+t2p611aIZraV2aPSRNXf0Z/oLZFrlygJm+sZbdJaW6lcFqEDQwnzUBXn+DApw+/QzDU/I9TeWx9izEjTmsA==}
     peerDependencies:
@@ -1374,6 +1380,8 @@ snapshots:
   vue-demi@0.14.8(vue@3.4.31(typescript@5.5.3)):
     dependencies:
       vue: 3.4.31(typescript@5.5.3)
+
+  vue-lazyload@3.0.0: {}
 
   vue-router@4.4.0(vue@3.4.31(typescript@5.5.3)):
     dependencies:

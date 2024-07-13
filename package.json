@@ -19,6 +19,7 @@
     "lodash": "^4.17.21",
     "swiper": "^11.1.4",
     "vue": "^3.4.31",
+    "vue-lazyload": "^3.0.0",
     "vue-router": "^4.4.0"
   },
   "devDependencies": {

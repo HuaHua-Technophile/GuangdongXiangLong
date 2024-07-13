@@ -9,15 +9,15 @@
 
 @font-face {
   font-family: "QinLiuLiShu";
-  src: url(@/assets/font/QinLiuLiShu.ttf);
+  src: url(@/assets/font/fontmin/QinLiuLiShu.woff2);
 }
 @font-face {
   font-family: "Cinzel-Regular";
-  src: url(@/assets/font/Cinzel-Regular.ttf);
+  src: url(@/assets/font/fontmin/Cinzel-Regular.woff2);
 }
 @font-face {
   font-family: "MisansTC-Light";
-  src: url(@/assets/font/MisansTC-Light.woff2);
+  src: url(@/assets/font/fontmin/MiSansTC-Light.woff2);
 }
 
 .el-tooltip__trigger:focus-visible {

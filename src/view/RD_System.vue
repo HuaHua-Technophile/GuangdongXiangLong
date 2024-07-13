@@ -1,5 +1,5 @@
 <template>
-  <VerticalParallaxSwiper bg="labs2.webp" :space-between="60">
+  <VerticalParallaxSwiper bg="Labs2.jpeg" :space-between="60">
     <FirstSlide
       title="<span>R</span>esearch <span>A</span>nd<br /><span>D</span>evelopment<br /><span>S</span>ystem."
       content="在香氛世界中，香龙香料以创新与技术的完美结合而闻名。我们不懈探索新机遇，将香气创新转化为实际成果，不仅激发消费者灵感，更提升他们的健康与福祉。我们致力于通过卓越的香氛，为人们的生活增添价值，创造更美好、更健康的体验。"></FirstSlide>
@@ -29,17 +29,11 @@
           data-swiper-parallax="-600"></div>
       </div>
       <!-- 插图 -->
-      <div
-        class="flex-shrink-0 shadow rounded-4 img transition1000"
-        :style="{
-          background: `URL(/images/${i.img})`,
-        }"
-        style="
-          width: 500px;
-          height: 350px;
-          background-position: center;
-          background-size: cover;
-        "></div>
+      <img
+        loading="lazy"
+        v-lazy="`/images/${i.img}`"
+        class="object-fit-cover flex-shrink-0 shadow rounded-4 img transition1000"
+        style="object-position: center; width: 500px; height: 350px" />
     </swiper-slide>
     <!-- 实拍 -->
     <swiper-slide class="flex-column d-flex">
@@ -56,16 +50,13 @@
         :keyboard="false"
         :mousewheel="false"
         :allowTouchMove="false"
-        class="flex-grow-1 w-100">
-        <swiper-slide
-          v-for="i in 17"
-          class="w-100 h-100"
-          :style="[
-            {
-              background: `url(/images/LiveShot/Labs${i + 1}.webp)`,
-            },
-          ]"
-          style="background-position: center; background-size: cover">
+        class="flex-grow-1 w-100 overflow-hidden">
+        <swiper-slide v-for="i in 18">
+          <img
+            loading="lazy"
+            :src="`/images/LiveShot/Labs${i}.jpeg`"
+            class="w-100 h-100 object-fit-cover"
+            style="object-position: center" />
         </swiper-slide>
       </swiper-container>
     </swiper-slide>
@@ -115,6 +106,14 @@
         });
       }
     }
+    Object.assign(swiperInside.value!, {
+      injectStyles: [
+        `:host {
+          --swiper-theme-color: var(--bs-xlxl);
+        }
+        `,
+      ],
+    });
     swiperInside.value?.initialize();
   });
   const text = ref<
@@ -122,13 +121,13 @@
   >([
     {
       title: "人才实力：创新之源",
-      img: "labs3.webp",
+      img: "Labs3.jpeg",
       content:
         "广东香龙香料有限公司以其雄厚的人才实力而著称。公司拥有多名博士和高级技术人员，他们在香料研发领域具有丰富的经验和专业知识。这支精英团队不仅为公司带来了先进的技术和创新理念，还持续推动着公司在行业内的领先地位。香龙公司深知人才是企业发展的根本，因此不断加大科研投入，通过多种渠道引进高端人才，成功打造了一支具有卓越创造能力的研发队伍",
     },
     {
       title: "研发体系：创新的引擎",
-      img: "labs1.webp",
+      img: "Labs1.jpeg",
       content:
         "为了更好地整合研发资源，提升创新能力，香龙公司于2006年成立了技术中心。这个中心下设多个专业研究室，包括天然香料研究室、烟用香精研究室、食品香精研究室、仪器分析实验室和应用研究室等。每个研究室都配备了先进的设备和专业的研究人员，形成了一个全面、系统的研发体系。这种结构化的研发体系不仅提高了研发效率，还促进了各个领域之间的协同创新",
     },
@@ -141,7 +140,7 @@
     },
     {
       title: "研发投入：创新的动力",
-      img: "labs4.webp",
+      img: "Labs4.jpeg",
       content:
         "香龙公司对科研的重视不仅体现在人才培养和技术创新上，更直接反映在其持续增加的研发投入上。近年来，公司在新技术研发方面的投入呈现稳步上升趋势。2019年，公司在研发方面投入了<span class='CountUp 3'>502.76</span>万元人民币，展现了其对创新的坚定承诺。2020年，尽管面临全球疫情的挑战，公司不仅没有减少研发投入，反而增加到了<span class='CountUp 3'>529</span>万元，充分体现了公司在逆境中坚持创新的决心。2021年，虽然投入略有下降，达到<span class='CountUp 3'>417</span>万元，但三年累计投入仍高达<span class='CountUp 3'>1448.76</span> 万元。这一持续的高投入不仅确保了公司在行业内的技术领先地位，也为未来的产品创新和市场拓展奠定了坚实的基础。香龙公司的这种长期投资策略，充分展现了其对科技创新的坚定信念，以及在激烈的市场竞争中保持领先地位的战略眼光。",
       countUp: [],

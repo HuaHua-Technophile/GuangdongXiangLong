@@ -1,5 +1,9 @@
 <template>
-  <VerticalParallaxSwiper free-mode="true" bgParallax="-50%" bgHeight="220%">
+  <VerticalParallaxSwiper
+    :free-mode="true"
+    :bgParallax="'-50%'"
+    :bgHeight="'220%'"
+    :mousewheel="false">
     <FirstSlide
       bg="CorporateCulture1.webp"
       title="<span>C</span>orporate<br /><span>C</span>ulture."
@@ -35,25 +39,25 @@
           </span>
         </div>
       </UseElementVisibility>
+      <!-- 最后一个卡片 -->
       <UseElementVisibility
         v-slot="{ isVisible }"
         class="CultureCard transition750 my-5"
         style="">
         <RouterLink
           to="/RD_System"
-          class="d-block text-decoration-none rounded-5 bg-xlxl bg-opacity-50 shadow text-white transition750 animate__animated animate__delay-4s position-relative"
+          class="d-block text-decoration-none rounded-5 overflow-hidden bg-xlxl bg-opacity-50 shadow text-white transition750 animate__animated animate__delay-4s position-relative"
           :class="[{ animate__fadeInUp: isVisible }]"
           style="
             width: calc(var(--card-width) * 1.5);
             height: var(--card-width);
             backdrop-filter: blur(10px);
           ">
-          <div
-            class="position-absolute w-100 h-100 rounded-5 opacity-25 bgLabs transition750"
-            style="
-              background: url('/images/labs1.webp') center;
-              background-size: cover;
-            "></div>
+          <img
+            loading="lazy"
+            v-lazy="'/images/Labs1.jpeg'"
+            class="w-100 h-100 opacity-25 transition750 bgLabs position-absolute object-fit-cover"
+            style="z-index: -1; object-position: center" />
           <div
             class="position-relative d-flex h-100 flex-column justify-content-between"
             style="z-index: 2">

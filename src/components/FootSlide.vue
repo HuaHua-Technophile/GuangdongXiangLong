@@ -7,9 +7,9 @@
       style="
         font-family: QinLiuLiShu;
         text-shadow: 0 0 5px white;
-        letter-spacing: 0.5rem;
+        letter-spacing: 13px;
       ">
-      香龍香料
+      廣東香龍香料
     </div>
     <div>
       <RouterLink class="text-white mx-5">使用条款</RouterLink>
@@ -22,7 +22,7 @@
       class="text-white"
       >粤ICP备2024274959号-1</a
     >
-    <div style="font-family: Cinzel-Regular">
+    <div style="font-family: Cinzel-Regular; letter-spacing: 1.5px">
       Building 3, No. 10 Fenggu Road, Industrial Transfer Industrial Park,
       Zhenjiang, Shaoguan
     </div>
@@ -32,7 +32,9 @@
       gdxianglong@126.com
     </div>
 
-    <div style="font-family: Cinzel-Regular" class="mt-4">
+    <div
+      style="font-family: Cinzel-Regular; letter-spacing: 1.7px"
+      class="mt-4">
       © 2024 Fragrant Dragon CO. All Rights Reserved
     </div>
   </swiper-slide>

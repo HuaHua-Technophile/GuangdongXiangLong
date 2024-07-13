@@ -13,7 +13,11 @@
           <RouterLink
             class="d-flex align-items-center py-1 text-decoration-none"
             to="/">
-            <img src="/images/LOGO.webp" style="width: 50px" class="me-1" />
+            <img
+              loading="lazy"
+              src="/images/LOGO.webp"
+              style="width: 50px"
+              class="me-1" />
             <div class="text-justify text-xlxl lh-1">
               <div
                 class="fs-2 d-flex justify-content-between"
@@ -89,7 +93,6 @@
       text: "一流品控",
       dropdown: [
         { text: "品质管理", url: "/Quality_Management" },
-        { text: "生产制造", url: "/Manufacturing" },
         { text: "绿色产园", url: "/Green_Industrial_Park" },
       ],
       show: false,

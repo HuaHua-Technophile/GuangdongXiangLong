@@ -20,11 +20,6 @@ const router = createRouter({
       component: () => import("@/view/Quality_Management.vue"),
     },
     {
-      path: "/Manufacturing",
-      name: "生产制造",
-      component: () => import("@/view/Manufacturing.vue"),
-    },
-    {
       path: "/Green_Industrial_Park",
       name: "绿色产园",
       component: () => import("@/view/Green_Industrial_Park.vue"),

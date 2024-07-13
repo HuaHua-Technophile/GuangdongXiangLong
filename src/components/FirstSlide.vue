@@ -1,10 +1,12 @@
 <template>
   <swiper-slide
-    class="vw-100 vh-100 d-flex align-items-center justify-content-center"
-    :style="{
-      background: `url(/images/${props.bg})`,
-    }"
-    style="backgroude-position: center; background-size: cover">
+    class="vw-100 vh-100 d-flex align-items-center justify-content-center position-relative">
+    <!-- 首屏图片不使用bg而使用img，实现懒加载 -->
+    <img
+      loading="lazy"
+      v-lazy="`/images/${props.bg}`"
+      class="w-100 h-100 position-absolute object-fit-cover"
+      style="z-index: -1; object-position: center" />
     <!-- 左侧英文标题 -->
     <div
       :ref="(el) => removeClass.push(el)"

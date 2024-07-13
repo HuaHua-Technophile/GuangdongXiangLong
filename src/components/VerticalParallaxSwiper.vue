@@ -20,10 +20,14 @@
       :data-swiper-parallax="bgParallax"
       class="position-absolute vw-100"
       :style="{
-        background: `url(/images/${props.bg})`,
         height: props.bgHeight,
-      }"
-      style="background-position: center; background-size: cover"></div>
+      }">
+      <img
+        loading="lazy"
+        v-lazy="`/images/${props.bg}`"
+        class="w-100 h-100 position-absolute object-fit-cover"
+        style="z-index: -1; object-position: center" />
+    </div>
     <!-- 插槽 -->
     <slot></slot>
   </swiper-container>
@@ -40,7 +44,7 @@
       bgHeight?: string;
     }>(),
     {
-      bg: "bg1.webp",
+      bg: "bg1.jpeg",
       bgParallax: "-50%",
       bgHeight: "210%",
     }
