@@ -2,8 +2,7 @@
   <VerticalParallaxSwiper
     :free-mode="true"
     :bgParallax="'-50%'"
-    :bgHeight="'220%'"
-    :mousewheel="false">
+    :bgHeight="'220%'">
     <FirstSlide
       bg="CorporateCulture1.webp"
       title="<span>C</span>orporate<br /><span>C</span>ulture."
