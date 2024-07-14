@@ -25,14 +25,19 @@ const router = createRouter({
       component: () => import("@/view/Green_Industrial_Park.vue"),
     },
     {
-      path: "/Edible_Flavors",
-      name: "食用香精",
-      component: () => import("@/view/Edible_Flavors.vue"),
+      path: "/IP",
+      name: "产权专利",
+      component: () => import("@/view/IP.vue"),
     },
     {
-      path: "/Tobacco_Flavorings",
+      path: "/Food_Flavoring",
+      name: "食用香精",
+      component: () => import("@/view/Food_Flavoring.vue"),
+    },
+    {
+      path: "/Tobacco_Flavoring",
       name: "烟用香精",
-      component: () => import("@/view/Tobacco_Flavorings.vue"),
+      component: () => import("@/view/Tobacco_Flavoring.vue"),
     },
     {
       path: "/Sales_Network",

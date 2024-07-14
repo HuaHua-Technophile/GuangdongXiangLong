@@ -6,7 +6,7 @@
     <header
       class="vw-100 position-fixed top-0 bg-white bg-opacity-50 shadow"
       v-show="showHeader"
-      style="z-index: 9999999">
+      style="z-index: 2000">
       <div class="container">
         <div class="d-flex justify-content-between">
           <!-- 公司LOGO -->
@@ -15,7 +15,7 @@
             to="/">
             <img
               loading="lazy"
-              src="/images/LOGO.webp"
+              v-lazy="`/images/LOGO.webp`"
               style="width: 50px"
               class="me-1" />
             <div class="text-justify text-xlxl lh-1">
@@ -94,14 +94,15 @@
       dropdown: [
         { text: "品质管理", url: "/Quality_Management" },
         { text: "绿色产园", url: "/Green_Industrial_Park" },
+        { text: "产权专利", url: "/IP" },
       ],
       show: false,
     },
     {
       text: "应用场景",
       dropdown: [
-        { text: "食用香精", url: "/Edible_Flavors" },
-        { text: "烟用香精", url: "/Tobacco_Flavorings" },
+        { text: "食用香精", url: "/Food_Flavoring" },
+        { text: "烟用香精", url: "/Tobacco_Flavoring" },
       ],
       show: false,
     },

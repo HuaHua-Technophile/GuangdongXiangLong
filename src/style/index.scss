@@ -19,7 +19,9 @@
   font-family: "MisansTC-Light";
   src: url(@/assets/font/fontmin/MiSansTC-Light.woff2);
 }
-
+:root {
+  --content-max-width: 80rem;
+}
 .el-tooltip__trigger:focus-visible {
   outline: unset;
 } //去除下拉菜单聚焦时外边框
@@ -39,7 +41,6 @@
 .transition1500 {
   transition: all 1.5s;
 }
-
 .cursor-pointer {
   cursor: pointer;
 }

@@ -26,10 +26,13 @@
         loading="lazy"
         v-lazy="`/images/${props.bg}`"
         class="w-100 h-100 position-absolute object-fit-cover"
+        :style="{ filter: `brightness(${props.brightness})` }"
         style="z-index: -1; object-position: center" />
     </div>
     <!-- 插槽 -->
     <slot></slot>
+    <!-- 页脚 -->
+    <FootSlide />
   </swiper-container>
 </template>
 <script lang="ts" setup>
@@ -42,9 +45,10 @@
       bg?: string;
       bgParallax?: string;
       bgHeight?: string;
+      brightness: number;
     }>(),
     {
-      bg: "bg1.jpeg",
+      bg: "bg1.webp",
       bgParallax: "-50%",
       bgHeight: "210%",
     }

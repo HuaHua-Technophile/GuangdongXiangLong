@@ -19,7 +19,10 @@
           :ref="(el) => removeClass.push(el)"
           class="text-center animate__animated animate__fadeInUp"
           data-swiper-parallax="-600">
-          <img loading="lazy" src="/images/LOGO.webp" style="width: 150px" />
+          <img
+            loading="lazy"
+            v-lazy="`/images/LOGO.webp`"
+            style="width: 150px" />
         </div>
         <!-- 文本 -->
         <div class="text-center lh-1" style="margin-top: 2.2vh">
@@ -83,7 +86,7 @@
             data-swiper-parallax="-150">
             <div>Specialized Products and Services:</div>
             <div style="margin-top: 2.2vh">
-              Tobacco Flavors, Food Flavors, Daily Chemical Flavors Plant
+              Tobacco Flavoring, Food Flavoring, Daily Chemical Flavoring Plant
               Extracts, Reconstituted Tobacco, Research and Sales
             </div>
           </div>
@@ -127,13 +130,13 @@
             loading="lazy"
             v-lazy="`/images/${j}`"
             class="w-100 h-100 object-fit-cover"
-            style="object-position: center" />
+            style="filter: brightness(0.4); object-position: center" />
         </swiper-slide>
       </swiper-container>
-      <!-- 一层暗色遮罩，与其他相关装饰 -->
+      <!-- 其他相关装饰 -->
       <UseElementVisibility
         v-slot="{ isVisible }"
-        class="position-absolute w-100 h-100 bg-black bg-opacity-50"
+        class="position-absolute w-100 h-100"
         style="z-index: 2">
         <div :class="{ AniStart: isVisible }">
           <!-- 左上角空心 -->
@@ -246,7 +249,6 @@
       </div>
     </swiper-slide>
     <!-- 页脚 -->
-    <FootSlide></FootSlide>
   </VerticalParallaxSwiper>
 </template>
 <script lang="ts" setup>
@@ -308,7 +310,10 @@
       decorative: false,
       enTitle: "Company Profile",
       title: "实力",
-      bg: ["jituan1.webp", "jituan2.jpeg"],
+      bg: [
+        "CompanyProfile/CompanyProfile1.webp",
+        "CompanyProfile/CompanyProfile2.jpeg",
+      ],
       content:
         "香龙集团是一家集开发、生产、销售于一体的高新技术企业，专业生产天然植物提物、香精香料和精细化工产品等，产品广泛应用于烟草、食品、日化、医药等行业。集团属下企业有6家分公司，广东香龙香料有限公司、广州市香龙化工香料有限公司、佰律多国际香料（香港）有限公司、韶关市港龙生物技术有限公司、河南长葛市万花香料有限公司、湖北咸丰县鸿基生物化工有限公司。公司拥有先进的实验检测仪器和生产设备,具有较强的科研开发和生产能力,年生产能力达10000吨以上。",
     },
@@ -316,7 +321,12 @@
       decorative: false,
       enTitle: "Quality Management",
       title: "质量",
-      bg: ["Labs1.jpeg", "Labs2.jpeg", "Labs3.jpeg", "Labs4.jpeg"],
+      bg: [
+        "Labs/Labs1.webp",
+        "Labs/Labs2.webp",
+        "Labs/Labs3.webp",
+        "Labs/Labs4.webp",
+      ],
       content:
         '公司坚持"质量为本、顾客为尊"的质量方针,以"研一流产品,创一流品牌"为经营方针,对产品整个生产和服务过程进行科学的质量管理。公司本着"集客所需,信誉至上"的经营理念,不断加大产品开发力度,增加技术储备,把科研与开发作为企业的发展之源。',
     },
@@ -324,7 +334,11 @@
       decorative: false,
       enTitle: "Brand Building",
       title: "品牌",
-      bg: ["branding1.webp", "branding2.webp", "branding3.webp"],
+      bg: [
+        "Branding/Branding1.webp",
+        "Branding/Branding2.webp",
+        "Branding/Branding3.webp",
+      ],
       content:
         '公司正努力把"香龙"香料创造为名优品牌,提升市场竞争力,研发出更加健康、安全、天然的新产品。公司坚持把品牌建设作为企业发展的核心,致力于打造一个"科研国际化、技术产业化、产品多元化"的新格局。',
     },
@@ -332,7 +346,7 @@
       decorative: false,
       enTitle: "Future Development",
       title: "展望",
-      bg: ["future1.jpeg", "future2.webp"],
+      bg: ["Future/Future1.webp", "Future/Future2.webp"],
       content:
         '香龙集团将继续秉持"质量为本、顾客为尊"的理念,以"研一流产品,创一流品牌"为目标,不断创新发展,努力将"香龙"品牌打造成为行业内的知名品牌,为客户提供更优质的产品和服务。',
     },

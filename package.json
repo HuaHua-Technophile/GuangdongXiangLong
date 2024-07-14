@@ -16,6 +16,7 @@
     "bootstrap": "5.3.3",
     "bootstrap-icons": "^1.11.3",
     "countup.js": "^2.8.0",
+    "element-plus": "^2.7.7",
     "lodash": "^4.17.21",
     "swiper": "^11.1.4",
     "vue": "^3.4.31",

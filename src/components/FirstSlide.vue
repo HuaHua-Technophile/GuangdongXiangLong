@@ -3,6 +3,7 @@
     class="vw-100 vh-100 d-flex align-items-center justify-content-center position-relative">
     <!-- 首屏图片不使用bg而使用img，实现懒加载 -->
     <img
+      v-if="props.bg"
       loading="lazy"
       v-lazy="`/images/${props.bg}`"
       class="w-100 h-100 position-absolute object-fit-cover"

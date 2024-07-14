@@ -7,10 +7,16 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ElImage: typeof import('element-plus/es')['ElImage']
+    FadeInUpGreenCard: typeof import('./src/components/FadeInUpGreenCard.vue')['default']
     FirstSlide: typeof import('./src/components/FirstSlide.vue')['default']
+    FoodTobaccoFlavoringTitle: typeof import('./src/components/FoodTobaccoFlavoringTitle.vue')['default']
     FootSlide: typeof import('./src/components/FootSlide.vue')['default']
+    LiveShotSwiper: typeof import('./src/components/LiveShotSwiper.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SlideTitle: typeof import('./src/components/SlideTitle.vue')['default']
+    TitleContentImgSlide: typeof import('./src/components/TitleContentImgSlide.vue')['default']
     VerticalParallaxSwiper: typeof import('./src/components/VerticalParallaxSwiper.vue')['default']
   }
 }
