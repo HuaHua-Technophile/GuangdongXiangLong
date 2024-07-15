@@ -3,7 +3,11 @@ import { createWebHistory, createRouter } from "vue-router";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", name: "集团简介", component: () => import("@/view/Home.vue") },
+    {
+      path: "/",
+      name: "集团简介",
+      component: () => import("@/view/Home1.vue"),
+    },
     {
       path: "/Corporate_Culture",
       name: "企业文化",
