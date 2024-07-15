@@ -25,6 +25,8 @@
   </VerticalParallaxSwiper>
 </template>
 <script lang="ts" setup>
+  document.title = "香龙绿色产园";
+
   const text = [
     {
       title: "规模优势：跨区域种植基地",

@@ -56,6 +56,8 @@
   </VerticalParallaxSwiper>
 </template>
 <script lang="ts" setup>
+  document.title = "香龙烟用香精";
+
   const text = [
     {
       title: "特征香系列",

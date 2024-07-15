@@ -12,9 +12,9 @@
       廣東香龍香料
     </div>
     <div>
-      <RouterLink class="text-white mx-5">使用条款</RouterLink>
-      <RouterLink class="text-white mx-5">隐私政策</RouterLink>
-      <RouterLink class="text-white mx-5">Cookies</RouterLink>
+      <RouterLink to="/" class="text-white mx-5">使用条款</RouterLink>
+      <RouterLink to="/" class="text-white mx-5">隐私政策</RouterLink>
+      <RouterLink to="/" class="text-white mx-5">Cookies</RouterLink>
     </div>
     <a
       href="https://beian.miit.gov.cn/#/Integrated/index"

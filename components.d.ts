@@ -7,6 +7,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ElImage: typeof import('element-plus/es')['ElImage']
+    FadeChangeBgSlide: typeof import('./src/components/FadeChangeBgSlide.vue')['default']
     FadeInUpGreenCard: typeof import('./src/components/FadeInUpGreenCard.vue')['default']
     FirstSlide: typeof import('./src/components/FirstSlide.vue')['default']
     FoodTobaccoFlavoringTitle: typeof import('./src/components/FoodTobaccoFlavoringTitle.vue')['default']

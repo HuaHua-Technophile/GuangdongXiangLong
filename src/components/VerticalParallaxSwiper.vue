@@ -45,7 +45,7 @@
       bg?: string;
       bgParallax?: string;
       bgHeight?: string;
-      brightness: number;
+      brightness?: number;
     }>(),
     {
       bg: "bg1.webp",

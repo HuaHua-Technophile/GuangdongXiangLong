@@ -93,6 +93,8 @@
   import { SwiperContainer } from "swiper/element";
   import { onMounted, ref } from "vue";
 
+  document.title = "香龙产权专利";
+
   const swiperInside = ref<SwiperContainer>();
 
   onMounted(() => {

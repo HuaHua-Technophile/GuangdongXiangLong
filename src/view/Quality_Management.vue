@@ -40,6 +40,9 @@
 </template>
 <script setup lang="ts">
   import { UseElementVisibility } from "@vueuse/components";
+
+  document.title = "香龙品质管理";
+
   const text = [
     {
       title: "精益生产",
