@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@types/node": "^20.14.10",
+    "@types/node": "^20.14.11",
     "@vueuse/components": "^10.11.0",
     "@vueuse/core": "^10.11.0",
     "animate.css": "^4.1.1",
@@ -18,19 +18,19 @@
     "countup.js": "^2.8.0",
     "element-plus": "^2.7.7",
     "lodash": "^4.17.21",
-    "swiper": "^11.1.4",
-    "vue": "^3.4.31",
+    "swiper": "^11.1.5",
+    "vue": "^3.4.32",
     "vue-lazyload": "^3.0.0",
     "vue-router": "^4.4.0"
   },
   "devDependencies": {
-    "@types/lodash": "^4.17.6",
+    "@types/lodash": "^4.17.7",
     "@vitejs/plugin-vue": "^5.0.5",
     "sass": "^1.77.8",
     "typescript": "^5.5.3",
     "unplugin-auto-import": "^0.17.8",
-    "unplugin-vue-components": "^0.27.2",
-    "vite": "^5.3.3",
+    "unplugin-vue-components": "^0.27.3",
+    "vite": "^5.3.4",
     "vue-tsc": "^2.0.26"
   }
 }

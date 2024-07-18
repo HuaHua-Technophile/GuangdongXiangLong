@@ -37,7 +37,7 @@
 </template>
 <script lang="ts" setup>
   import type { SwiperContainer } from "swiper/element";
-  import { onMounted, ref } from "vue";
+  import { onMounted, onUnmounted, ref } from "vue";
   // 滑动事件-----------------
   const props = withDefaults(
     defineProps<{
@@ -53,12 +53,10 @@
       bgHeight: "210%",
     }
   );
-  const emit = defineEmits<{
-    changeSwiperEl: [swiperOut: SwiperContainer];
-  }>();
-
   // 延迟DOM加载后实例化------------
   const swiperOut = ref<SwiperContainer>();
+  defineExpose({ swiperOut });
+
   onMounted(() => {
     Object.assign(swiperOut.value!, {
       injectStyles: [
@@ -73,6 +71,8 @@
       ],
     });
     swiperOut.value?.initialize();
-    emit("changeSwiperEl", swiperOut.value!);
+  });
+  onUnmounted(() => {
+    swiperOut.value?.swiper.destroy();
   });
 </script>

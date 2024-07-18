@@ -29,7 +29,7 @@
             transparent 100%
           );
           z-index: -1;
-          filter: brightness(0.5);
+          filter: brightness(0.4);
           background-position: center;
           background-size: cover;
         "

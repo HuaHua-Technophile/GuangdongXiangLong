@@ -1,7 +1,7 @@
 <template>
   <VerticalParallaxSwiper
+    ref="swiperOut"
     :onSlideChange="onSlideChange"
-    @changeSwiperEl="changeSwiperEl"
     :spaceBetween="1">
     <!-- 首屏介绍 -->
     <swiper-slide class="vw-100">
@@ -95,7 +95,7 @@
       <!-- 下拉箭头 -->
       <div
         class="DropdownArrow position-absolute bottom-0 start-50"
-        @click="swiperOut?.swiper.slideNext()">
+        @click="swiperOut?.swiperOut.swiper.slideNext()">
         <span></span>
         <span></span>
       </div>
@@ -121,17 +121,12 @@
   const showHeader = defineModel<boolean>("showHeader");
   showHeader.value = false;
 
-  // 点击按钮跳转下一页，接受实例化后的swiper
-  const swiperOut = ref<SwiperContainer>();
-  const changeSwiperEl = (data: SwiperContainer) => {
-    swiperOut.value = data;
-  };
-
   // 页面加载完成后便实例化所有内层swiper，避免出现没有背景图片。暂时禁用避免多余性能消耗
+  const swiperOut = ref<{ swiperOut: SwiperContainer }>();
   const swiperInside = ref<{ swiperContainer: SwiperContainer }[]>([]);
   const onSlideChange = (e: CustomEvent<[Swiper]>) => {
     // onSlideChange事件会被内层swiper实例触发，莫名其妙？？？，且无法通过event.stopPropagation组织冒泡.于是在最外层再做一次判断来自哪个实例触发
-    if (e.detail[0] == swiperOut.value?.swiper) {
+    if (e.detail[0] == swiperOut.value?.swiperOut.swiper) {
       if (e.detail[0].activeIndex != 0) {
         showHeader.value = true;
         // 滚动到第几页,第几个swiper实例重新实例化,其他进行销毁
