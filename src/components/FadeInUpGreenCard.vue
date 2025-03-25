@@ -57,48 +57,48 @@
   </UseElementVisibility>
 </template>
 <script lang="ts" setup>
-  import { UseElementVisibility } from "@vueuse/components";
+import { UseElementVisibility } from "@vueuse/components";
 
-  const props = withDefaults(
-    defineProps<{
-      height?: number;
-      width?: number;
-      index?: number;
-      title: string;
-      icon: string;
-      content: string;
-      to?: string;
-      bg?: string;
-    }>(),
-    {
-      height: 22,
-      width: 22,
-      index: 0,
-    }
-  );
+const props = withDefaults(
+  defineProps<{
+    height?: number;
+    width?: number;
+    index?: number;
+    title: string;
+    icon: string;
+    content: string;
+    to: string;
+    bg?: string;
+  }>(),
+  {
+    height: 22,
+    width: 22,
+    index: 0,
+  }
+);
 </script>
 <style lang="scss" scoped>
-  .animate__delay_faster {
-    --animate-delay: 300ms;
-  }
-  .FadeInUpGreenCard:hover {
-    transform: scale(1.04);
+.animate__delay_faster {
+  --animate-delay: 300ms;
+}
+.FadeInUpGreenCard:hover {
+  transform: scale(1.04);
+  > div {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.75) !important;
+    --bs-bg-opacity: 0.8 !important;
     > div {
-      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.75) !important;
-      --bs-bg-opacity: 0.8 !important;
-      > div {
-        text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-      }
-    }
-    .BigIcon {
-      font-size: 6rem !important;
-      text-shadow: 0 0 25px black;
-    }
-    .JumpCardIcon {
-      background: rgba(var(--bs-xlxl-rgb), 0.75);
-    }
-    .JumpCardBg {
-      opacity: 1 !important;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     }
   }
+  .BigIcon {
+    font-size: 6rem !important;
+    text-shadow: 0 0 25px black;
+  }
+  .JumpCardIcon {
+    background: rgba(var(--bs-xlxl-rgb), 0.75);
+  }
+  .JumpCardBg {
+    opacity: 1 !important;
+  }
+}
 </style>

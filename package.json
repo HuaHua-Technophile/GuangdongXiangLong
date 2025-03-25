@@ -9,28 +9,28 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@types/node": "^20.14.11",
-    "@vueuse/components": "^10.11.0",
-    "@vueuse/core": "^10.11.0",
+    "@types/node": "^22.13.13",
+    "@vueuse/components": "^13.0.0",
+    "@vueuse/core": "^13.0.0",
     "animate.css": "^4.1.1",
     "bootstrap": "5.3.3",
     "bootstrap-icons": "^1.11.3",
     "countup.js": "^2.8.0",
-    "element-plus": "^2.7.7",
+    "element-plus": "^2.9.7",
     "lodash": "^4.17.21",
-    "swiper": "^11.1.5",
-    "vue": "^3.4.32",
+    "swiper": "^11.2.6",
+    "vue": "^3.5.13",
     "vue-lazyload": "^3.0.0",
-    "vue-router": "^4.4.0"
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@types/lodash": "^4.17.7",
-    "@vitejs/plugin-vue": "^5.0.5",
-    "sass": "^1.77.8",
-    "typescript": "^5.5.3",
-    "unplugin-auto-import": "^0.17.8",
-    "unplugin-vue-components": "^0.27.3",
-    "vite": "^5.3.4",
-    "vue-tsc": "^2.0.26"
+    "@types/lodash": "^4.17.16",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "sass": "^1.86.0",
+    "typescript": "^5.8.2",
+    "unplugin-auto-import": "^19.1.1",
+    "unplugin-vue-components": "^28.4.1",
+    "vite": "^6.2.3",
+    "vue-tsc": "^2.2.8"
   }
 }
