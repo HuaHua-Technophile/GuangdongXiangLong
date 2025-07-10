@@ -1,61 +1,71 @@
-# 广东香龙香料有限公司官网
+<p align="center">
+  <a href="#">
+    <img src="https://imglink.win/image/2025/07/11/GWZNI.webp" alt="广东香龙香料有限公司 LOGO" width="200">
+  </a>
+</p>
+<h1 align="center">广东香龙香料有限公司企业官网</h1>
+<p align="center">
+  <img src="https://img.shields.io/badge/Vue.js-3.5-4FC08D?style=flat&logo=vue.js" alt="Vue 3">
+  <a href="https://github.com/HuaHua-Technophile/GuangdongXiangLong">
+    <img src="https://img.shields.io/github/repo-size/HuaHua-Technophile/GuangdongXiangLong?style=flat" alt="Repo Size">
+  </a>
+  <a href="https://github.com/HuaHua-Technophile/GuangdongXiangLong/stargazers">
+    <img src="https://img.shields.io/github/stars/HuaHua-Technophile/GuangdongXiangLong?style=flat&logo=github" alt="GitHub stars">
+  </a>
+  <a href="https://github.com/HuaHua-Technophile/GuangdongXiangLong/network/members">
+    <img src="https://img.shields.io/github/forks/HuaHua-Technophile/GuangdongXiangLong?style=flat&logo=github" alt="GitHub forks">
+  </a>
+</p>
 
-本项目是为广东香龙香料有限公司开发的官方企业网站。它是一个使用 Vue 3 和 Vite 构建的现代化单页应用程序 (SPA)，旨在展示公司的企业文化、研发实力、产品体系和营销网络。
+一个为广东香龙香料有限公司打造的现代化企业官网。项目基于 Vue 3 + Vite 构建，旨在通过动态、优雅的界面，全面展示公司的雄厚实力、深厚文化底蕴、先进研发体系及全球化营销网络。
 
 ## ✨ 功能特性
 
-- **现代化界面**：采用响应式设计，适配不同尺寸的设备。
-- **丰富的动画效果**：基于 `animate.css` 和 `Swiper.js` 实现平滑的页面过渡和视觉元素动画。
-- **组件化开发**：使用 Vue 3 组合式 API (Composition API) 和 `script setup` 语法，代码结构清晰，易于维护。
-- **自动导入**：通过 `unplugin-auto-import` 和 `unplugin-vue-components` 实现 API 和组件的自动按需导入。
-- **清晰的导航**：网站内容划分为集团简介、企业文化、研发体系、品质管理、绿色产园、产权专利、食用香精、烟用香精和营销网络等多个板块。
+- **现代化界面**：采用响应式设计，适配不同尺寸的设备，提供卓越的用户体验。
+- **丰富的动画效果**：基于 `Swiper.js` 和 `Animate.css`，实现平滑的页面过渡和引人入胜的视觉元素动画。
+- **组件化开发**：遵循 Vue 3 组合式 API (Composition API) 与 `script setup` 范式，代码结构清晰、可维护性高。
+- **极致的性能**：通过 `unplugin-auto-import` 和 `unplugin-vue-components` 实现组件和 API 的自动按需导入，优化加载性能。
+- **清晰的导航**：内容覆盖集团简介、企业文化、研发体系、品质管理、绿色产园、产权专利、食用香精、烟用香精及营销网络等板块，结构一目了然。
 
 ## 🛠️ 技术栈
 
-- **前端框架**: [Vue 3](https://vuejs.org/)
-- **构建工具**: [Vite](https://vitejs.dev/)
-- **编程语言**: [TypeScript](https://www.typescriptlang.org/)
-- **路由**: [Vue Router](https://router.vuejs.org/)
-- **UI & 样式**:
-  - [Bootstrap 5](https://getbootstrap.com/)
-  - [Sass](https://sass-lang.com/)
-  - [Element Plus](https://element-plus.org/)
-- **动画与交互**:
-  - [Swiper](https://swiperjs.com/)
-  - [Animate.css](https://animate.style/)
-  - [CountUp.js](https://inorganik.github.io/countUp.js/)
-- **工具库**:
-  - [@vueuse/core](https://vueuse.org/)
-  - [Lodash](https://lodash.com/)
+| 分类               | 技术栈                                                                                                                                                                                                                                                                                                                                                                                                             |
+| :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **核心框架与工具** | <img src="https://img.shields.io/badge/Vue.js-3.5-4FC08D?style=flat&logo=vue.js" alt="Vue 3"> <img src="https://img.shields.io/badge/Vite-7.0-646CFF?style=flat&logo=vite" alt="Vite"> <img src="https://img.shields.io/badge/TypeScript-5.8-3178C6?style=flat&logo=typescript" alt="TypeScript"> <img src="https://img.shields.io/badge/Vue_Router-4.5-4FC08D?style=flat&logo=vue.js" alt="Vue Router">           |
+| **UI 与样式**      | <img src="https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=flat&logo=bootstrap" alt="Bootstrap 5"> <img src="https://img.shields.io/badge/Sass-1.89-CC6699?style=flat&logo=sass" alt="Sass"> <img src="https://img.shields.io/badge/Element_Plus-2.10-409EFF?style=flat&logo=element-plus" alt="Element Plus"> <img src="https://img.shields.io/badge/Animate.css-4.1-3B4A68?style=flat" alt="Animate.css"> |
+| **生态与工具库**   | <img src="https://img.shields.io/badge/Swiper-11.2-6332F6?style=flat&logo=swiper" alt="Swiper"> <img src="https://img.shields.io/badge/CountUp.js-2.9-F39F18?style=flat" alt="CountUp.js"> <img src="https://img.shields.io/badge/@vueuse/core-13.5-4FC08D?style=flat&logo=vueuse" alt="@vueuse/core"> <img src="https://img.shields.io/badge/Lodash-4.17-3492FF?style=flat&logo=lodash" alt="Lodash">             |
 
 ## 🚀 本地开发
 
-请确保您的开发环境中已安装 [Node.js](https://nodejs.org/) (推荐 v18+) 和 [pnpm](https://pnpm.io/)。
+本项目使用 `pnpm` 作为标准的包管理器，以确保依赖版本的一致性与安装效率。请确保您的开发环境中已安装 [Node.js](https://nodejs.org/) (推荐 v18+)。
 
-1.  **克隆项目**
+1.  **安装 pnpm** (若未安装)
+
+    建议通过 `npm` 进行全局安装：
 
     ```bash
-    git clone <your-repository-url>
+    npm install -g pnpm
+    ```
+
+    更多安装方式请参考 [pnpm 官方文档](https://pnpm.io/installation)。
+
+2.  **克隆项目**
+
+    ```bash
+    git clone https://github.com/HuaHua-Technophile/GuangdongXiangLong.git
     cd GuangdongXiangLong
     ```
 
-2.  **安装依赖**
+3.  **安装依赖**
 
     ```bash
     pnpm install
     ```
 
-3.  **启动开发服务器**
-    此命令将以开发模式启动项目，您可以通过浏览器访问 `http://localhost:5173` 查看。
-    ```bash
-    pnpm dev
-    ```
-
-## 📦 可用脚本
-
-- `pnpm dev`：启动本地开发服务器。
-- `pnpm build`：使用 TypeScript 编译器 (`vue-tsc`) 进行类型检查，并打包项目到 `dist` 目录用于生产环境。
-- `pnpm preview`：在本地预览生产环境构建后的项目。
+4.  **运行脚本**
+    - `pnpm dev`：启动本地开发服务器。
+    - `pnpm build`：使用 TypeScript 编译器 (`vue-tsc`) 进行类型检查，并打包项目到 `dist` 目录用于生产环境。
+    - `pnpm preview`：在本地预览生产环境构建后的项目。
 
 ## 📁 项目结构
 
@@ -75,8 +85,6 @@
 ├── package.json           # 项目元数据和依赖管理
 └── vite.config.ts         # Vite 配置文件
 ```
-
-_该 README 由 AI 编程助手辅助生成。_
 
 ## 🖼️ 预览图
 
